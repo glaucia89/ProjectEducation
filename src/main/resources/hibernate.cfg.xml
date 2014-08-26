@@ -10,6 +10,10 @@
     <property name="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.connection.pool_size">10</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.transaction.auto_close_session">true</property>
+    <property name="hibernate.connection.autocommit">true</property>
     <mapping resource="com/fatec/neweducation/model/Player.hbm.xml"/>
     <mapping resource="com/fatec/neweducation/model/User.hbm.xml"/>
     <mapping resource="com/fatec/neweducation/model/Question.hbm.xml"/>

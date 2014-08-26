@@ -1,5 +1,5 @@
 package com.fatec.neweducation.model;
-// Generated 23/08/2014 14:33:20 by Hibernate Tools 3.6.0
+// Generated 25/08/2014 21:45:35 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
