@@ -28,7 +28,7 @@
 
     <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-<jsp:include page="templates/School/form.jsp"/>
+    <jsp:include page="templates/user/form.jsp"/>
 
 <jsp:include page="templates/layout/footer.jsp"/>
 

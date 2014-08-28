@@ -18,8 +18,9 @@ public class PlayerServiceImpl implements PlayerService {
     private PlayerDAO dao;
 
     @Override
-    public void savePlayer(Player player) {
-        dao.save(player);
+    public Integer savePlayer(Player player) {
+        Integer id = dao.save(player);
+        return id;
     }
 
     @Override

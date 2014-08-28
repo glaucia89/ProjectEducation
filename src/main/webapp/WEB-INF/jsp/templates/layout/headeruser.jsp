@@ -16,8 +16,8 @@
     <link href="" version="2.0">
     <title>Bootstrap Template</title>
 
-    <link rel="stylesheet" href="/assets/css/vendor/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/assets/css/color.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/color.css"/>
     <!--<link href="/WEB-INF/pages/boostrap/css/color.css" rel="stylesheet" type="text/css" media="screen" />-->
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,16 +34,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">NewEducation</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/startgame">Inicial</a></li>
+                <li><a href="${pageContext.request.contextPath}/about">Sobre</a></li>
+                <li><a href="${pageContext.request.contextPath}/developer">Desevolvedor</a></li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
     </div>
 </div>
 

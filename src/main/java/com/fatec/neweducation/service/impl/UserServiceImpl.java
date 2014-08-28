@@ -18,10 +18,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     //TODO - incluir mensagem de erro
-    public void saveUser(User user) {
+    public Integer saveUser(User user) {
         if (this.isAvailableName(user.getNameUser())) {
-            dao.save(user);
+            Integer id = dao.save(user);
+            return id;
         }
+        return null;
     }
 
     @Override

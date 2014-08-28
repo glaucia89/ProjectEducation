@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<jsp:include page="templates/layout/header.jsp"/>
+    <jsp:include page="templates/layout/headeradmin.jsp"/>
 
 <jsp:include page="templates/school/form.jsp"/>
 

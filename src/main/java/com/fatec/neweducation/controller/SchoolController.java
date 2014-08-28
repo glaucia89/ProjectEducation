@@ -23,7 +23,7 @@ public class SchoolController {
     @Autowired
     private SchoolService schoolService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeschool");
         modelAndView.addObject("title", "Escolas");
@@ -44,14 +44,13 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("schoolmodel") School schoolmodel) {
+    public String save(@ModelAttribute("schoolmodel") School schoolmodel) {
         ModelAndView modelAndView = new ModelAndView("homeschool");
         modelAndView.addObject("title", "Escolas");
-        //schoolmodel.setId(3l);
         this.schoolService.saveSchool(schoolmodel);
         modelAndView.addObject("schools", this.schoolService.findAll());
         modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
-        return modelAndView;
+        return "redirect:/school";
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
@@ -66,13 +65,13 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
-    public ModelAndView update(@ModelAttribute School school, @PathVariable Long id) {
+    public String update(@ModelAttribute School school, @PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("homeschool");
         modelAndView.addObject("title", "Escolas");
         this.schoolService.updateSchool(school);
         modelAndView.addObject("schools", this.schoolService.findAll());
         modelAndView.addObject("messagee", "Escola " + school.getTitle() + " editado com sucesso!");
-        return modelAndView;
+        return "redirect:/school";
     }
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)

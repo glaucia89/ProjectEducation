@@ -162,11 +162,11 @@ public class FakeQuestionFour {
         }
 
         if (hability != null) {
-            question.setHability(this.getHability().getValor());
+            question.setHability(this.getHability());
         }
 
         if (typeQuestion != null) {
-            question.setTypeQuestion(this.getTypeQuestion().getValor());
+            question.setTypeQuestion(this.getTypeQuestion());
         }
 
         return question;
@@ -176,7 +176,7 @@ public class FakeQuestionFour {
 
         Answer answer = new Answer();
 
-        answer.setFkQuestion(this.getQuestion().getId());
+        answer.setFkQuestion(this.getQuestion());
 
         if (idAnswerA != null) {
             answer.setId(this.getIdAnswerA());
@@ -201,7 +201,7 @@ public class FakeQuestionFour {
 
         Answer answer = new Answer();
 
-        answer.setFkQuestion(this.getQuestion().getId());
+        answer.setFkQuestion(this.getQuestion());
 
         if (idAnswerB != null) {
             answer.setId(this.getIdAnswerB());
@@ -226,7 +226,7 @@ public class FakeQuestionFour {
 
         Answer answer = new Answer();
 
-        answer.setFkQuestion(this.getQuestion().getId());
+        answer.setFkQuestion(this.getQuestion());
 
         if (idAnswerC != null) {
             answer.setId(this.getIdAnswerC());

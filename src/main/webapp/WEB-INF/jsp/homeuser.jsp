@@ -26,9 +26,9 @@
 </head>
 <body>
 
-<jsp:include page="templates/layout/header.jsp"/>
+    <jsp:include page="templates/layout/headeruser.jsp"/>
 
-<jsp:include page="templates/School/list.jsp"/>
+<jsp:include page="templates/others/stargame.jsp"/>
 
 <jsp:include page="templates/layout/footer.jsp"/>
 

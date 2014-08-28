@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PlayerService {
 
-    public void savePlayer(Player player);
+    public Integer savePlayer(Player player);
 
     public void deletePlayer(Player player);
 

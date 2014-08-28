@@ -10,7 +10,7 @@
 <div class="container-fluid panel-body">
     <div class="row">
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
-            <h1 class="page-header">Adicionar Escola</h1>
+            <h1 class="page-header">${title}</h1>
 
             <div class="row placeholders">
                 <div class="col-md-12 col-sm-12 pager">
@@ -32,7 +32,7 @@
                                     <select name="city" class="form-control" id="cityforschool">
                                         <option value="${school.city}">${school.city}</option>
                                         <c:forEach var="item" items="${cities}">
-                                            <option value="${item.valor}">${item.valor}</option>
+                                            <option value="${item}">${item.valor}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -44,12 +44,14 @@
                                     <select name="state" class="form-control" id="stateforschool" >
                                         <option value="${school.state}">${school.state}</option>
                                         <c:forEach var="item" items="${states}">
-                                            <option value="${item.valor}">${item.valor}</option>
+                                            <option value="${item}">${item.valor}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                                        <button type="submit" class="btn btn-default">Salvar</button>
+
+                                        <button type="submit" class="btn btn-default">Voltar<a href="${pageContext.request.contextPath}/school" /></button>
                         </form>
                     </div>
                 </div>

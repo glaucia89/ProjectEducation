@@ -1,6 +1,8 @@
 package com.fatec.neweducation.model.dto;
 
 import com.fatec.neweducation.model.Player;
+import com.fatec.neweducation.model.PlayerSchoolGrade;
+import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.resources.Gender;
 import com.fatec.neweducation.model.resources.TypeUser;
@@ -16,9 +18,12 @@ public class FakeUserPlayer {
     private String password;
     private Date dateOfBirth;
     private Gender gender;
-    private TypeUser typeUser;
+    private Integer year;
+    private Integer classe;
+    private School school;
     private Integer idUser;
     private Integer idPlayer;
+    private Integer idPlayerSchoolGrade;
 
     public String getName() {
         return name;
@@ -76,16 +81,41 @@ public class FakeUserPlayer {
         this.idPlayer = idPlayer;
     }
 
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getClasse() {
+        return classe;
+    }
+
+    public void setClasse(Integer classe) {
+        this.classe = classe;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School idSchool) {
+        this.school = idSchool;
+    }
+
+    public Integer getIdPlayerSchoolGrade() {
+        return idPlayerSchoolGrade;
+    }
+
+    public void setIdPlayerSchoolGrade(Integer idPlayerSchoolGrade) {
+        this.idPlayerSchoolGrade = idPlayerSchoolGrade;
     }
 
     public User getUser() {
         User user = new User();
+        user.setTypeUser(TypeUser.USUARIO);
 
         if (idUser != null) {
             user.setId(this.getIdUser());
@@ -99,10 +129,6 @@ public class FakeUserPlayer {
             user.setLoginUser(this.getLogin());
         }
 
-        if (typeUser != null) {
-            user.setTypeUser(this.getTypeUser().getValor());
-        }
-
         if (password != null) {
             user.setPassword(this.getPassword());
         }
@@ -111,12 +137,11 @@ public class FakeUserPlayer {
 
     }
 
-
     public Player getPlayer() {
         Player player = new Player();
 
         if (idUser != null) {
-            player.setFkUser(this.getUser().getId());
+            player.setFkUser(this.getUser());
         }
 
         if (dateOfBirth != null) {
@@ -124,9 +149,52 @@ public class FakeUserPlayer {
         }
 
         if (gender != null) {
-            player.setGender(this.getGender().getValor());
+            player.setGender(this.getGender());
         }
 
         return player;
     }
+
+    public PlayerSchoolGrade getPlayerSchoolGrade() {
+        PlayerSchoolGrade playerSchoolGrade = new PlayerSchoolGrade();
+
+        if (this.year != null) {
+            playerSchoolGrade.setYearClasse(this.getYear());
+        }
+
+        if (this.classe != null) {
+            playerSchoolGrade.setClasse(this.getClasse());
+        }
+
+        if (this.school != null) {
+            playerSchoolGrade.setFkSchool(this.getSchool());
+        }
+
+        if (this.idPlayer != null) {
+            playerSchoolGrade.setFkPlayer(this.getPlayer());
+        }
+
+        return playerSchoolGrade;
+    }
+
+    public void setUser(User user) {
+        this.setIdUser(user.getId());
+        this.setName(user.getNameUser());
+        this.setPassword(user.getPassword());
+    }
+
+    public void setPlayer(Player player) {
+        this.setIdPlayer(player.getId());
+        this.setDateOfBirth(player.getDateOfBirth());
+        this.setGender(player.getGender());
+    }
+
+    public void setPlayerSchoolGrade(PlayerSchoolGrade playerSchoolGrade) {
+        this.setIdPlayerSchoolGrade(playerSchoolGrade.getId());
+        this.setYear(playerSchoolGrade.getYearClasse());
+        this.setClasse(playerSchoolGrade.getClasse());
+        this.setSchool(playerSchoolGrade.getFkSchool());
+    }
+
+
 }

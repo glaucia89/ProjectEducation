@@ -5,7 +5,7 @@ package com.fatec.neweducation.model.resources;
  */
 public enum Hability {
 
-    FONETICA("Fonética"),
+    FONETICA("Fonetica"),
     VERBAL("Verbal");
 
     private String valor;

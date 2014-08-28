@@ -26,9 +26,9 @@
     </head>
     <body>
 
-        <jsp:include page="templates/layout/singup.jsp"/>
+        <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-        <jsp:include page="templates/others/home.jsp"/>
+        <jsp:include page="templates/others/developer.jsp"/>
 
         <jsp:include page="templates/layout/footer.jsp"/>
 
