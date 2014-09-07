@@ -5,7 +5,7 @@ package com.fatec.neweducation.model.resources;
  */
 public enum Gender {
 
-    FEMINiNO("Feminino"), MASCULINO("Masculino");
+    FEMININO("Feminino"), MASCULINO("Masculino");
 
     private String valor;
 

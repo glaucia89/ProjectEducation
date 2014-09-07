@@ -18,4 +18,6 @@ public interface UserDAO {
     public void delete(User entity);
 
     public List<User> findAll();
+
+    public List<User> findByType(String type);
 }

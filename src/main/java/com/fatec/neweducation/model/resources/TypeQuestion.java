@@ -5,20 +5,20 @@ package com.fatec.neweducation.model.resources;
  */
 public enum TypeQuestion {
 
-    FAE1(1),
-    FAE2(2),
-    FAE3(3),
-    FAE4(4),
-    FAE5(5),
-    FAE6(6);
+    FAE1("FAE 1"),
+    FAE2("FAE 2"),
+    FAE3("FAE 3"),
+    FAE4("FAE 4"),
+    FAE5("FAE 5"),
+    FAE6("FAE 6");
 
-    private Integer valor;
+    private String valor;
 
-    TypeQuestion(Integer valor) {
+    TypeQuestion(String valor) {
         this.valor = valor;
     }
 
-    public Integer getValor() {
+    public String getValor() {
         return valor;
     }
 

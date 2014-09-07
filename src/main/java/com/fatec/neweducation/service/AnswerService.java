@@ -9,13 +9,13 @@ import java.util.List;
  */
 public interface AnswerService {
 
-    public void saveAnswer(Answer answer);
+    public void save(Answer answer);
 
-    public void deleteAnswer(Answer answer);
+    public void delete(Integer id);
 
-    public void updateAnswer(Answer answer);
+    public void update(Answer answer);
 
-    public Answer findAnswerById(Integer id);
+    public Answer findById(Integer id);
 
-    public List<Answer> findAnswerByQuestion(Question question);
+    public List<Answer> findByQuestion(Question question);
 }

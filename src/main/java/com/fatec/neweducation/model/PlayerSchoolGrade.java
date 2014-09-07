@@ -3,13 +3,13 @@ package com.fatec.neweducation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 
 
@@ -19,7 +19,9 @@ import org.hibernate.annotations.CascadeType;
  */
 @Entity
 @Table(name = "player_school_grade")
-public class PlayerSchoolGrade  implements java.io.Serializable {
+public class PlayerSchoolGrade implements java.io.Serializable {
+
+    private static final long serialVersionUID = 4L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,22 +33,30 @@ public class PlayerSchoolGrade  implements java.io.Serializable {
     @Column(name = "classe")
     private Integer classe;
 
-    @Column(name = "fk_player")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
     private Player fkPlayer;
 
-    @Column(name = "fk_school")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
     private School fkSchool;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    private Standart fkStandart;
 
     public PlayerSchoolGrade() {
     }
 
-    public PlayerSchoolGrade(Integer yearClasse, Integer classe, Player fkPlayer, School fkSchool) {
-       this.yearClasse = yearClasse;
-       this.classe = classe;
-       this.fkPlayer = fkPlayer;
-       this.fkSchool = fkSchool;
+    public PlayerSchoolGrade(Integer id, Integer yearClasse, Integer classe, Player fkPlayer, School fkSchool, Standart fkStandart) {
+        this.id = id;
+        this.yearClasse = yearClasse;
+        this.classe = classe;
+        this.fkPlayer = fkPlayer;
+        this.fkSchool = fkSchool;
+        this.fkStandart = fkStandart;
     }
-   
+
     public Integer getId() {
         return this.id;
     }
@@ -83,6 +93,13 @@ public class PlayerSchoolGrade  implements java.io.Serializable {
         this.fkSchool = fkSchool;
     }
 
+    public Standart getFkStandart() {
+        return fkStandart;
+    }
+
+    public void setFkStandart(Standart fkStandart) {
+        this.fkStandart = fkStandart;
+    }
 
 
 

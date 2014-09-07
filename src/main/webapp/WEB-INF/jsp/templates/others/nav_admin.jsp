@@ -27,7 +27,7 @@
                     </div>
 
                         <div class="col-xs-6 col-md-3">
-                            <a href="${pageContext.request.contextPath}/user" class="thumbnail">
+                            <a href="${pageContext.request.contextPath}/player" class="thumbnail">
                                 <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/users.jpg"  style="width: 200px; height: 200px;">
                             </a>
 

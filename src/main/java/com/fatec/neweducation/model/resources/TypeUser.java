@@ -5,16 +5,18 @@ package com.fatec.neweducation.model.resources;
  */
 public enum TypeUser {
 
-    EDUCADOR(1), USUARIO(2);
+    EDUCADOR("Educador"),
+    ESTUDANTE("Estudante");
 
-    private Integer valor;
+    private String valor;
 
-    TypeUser(Integer valor) {
+    TypeUser(String valor) {
         this.valor = valor;
     }
 
-    public Integer getValor() {
+    public String getValor() {
         return valor;
     }
+
 
 }

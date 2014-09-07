@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="" version="2.0">
-    <title>Escola</title>
+    <title>Questão</title>
 
-    <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/newEducation/assets/css/color.css"/>
+    <link rel="stylesheet" href="/newEducation//assets/css/vendor/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/newEducation//assets/css/color.css"/>
     <!--<link href="/WEB-INF/pages/boostrap/css/color.css" rel="stylesheet" type="text/css" media="screen" />-->
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -28,7 +28,7 @@
 
     <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-<jsp:include page="templates/school/form.jsp"/>
+<jsp:include page="templates/School/list.jsp"/>
 
 <jsp:include page="templates/layout/footer.jsp"/>
 

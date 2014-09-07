@@ -2,18 +2,18 @@ package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.PlayerSchoolGradeDAO;
 import com.fatec.neweducation.model.PlayerSchoolGrade;
-import com.fatec.neweducation.model.School;
+import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by glaucia on 14/08/14.
  */
-@Component
-//@Transactional
+@Repository
 public class PlayerSchoolGradeDAOImpl implements PlayerSchoolGradeDAO {
 
     private Session session;
@@ -54,9 +54,19 @@ public class PlayerSchoolGradeDAOImpl implements PlayerSchoolGradeDAO {
 
     @Override
     public List<PlayerSchoolGrade> findAll() {
+        String query = "from " + PlayerSchoolGrade.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<PlayerSchoolGrade> list = session.createSQLQuery("select {player_school_grade.*} from player_school_grade").addEntity("player_school_grade", PlayerSchoolGrade.class).list();
+        List<PlayerSchoolGrade> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
+    public List<PlayerSchoolGrade> findByPlayer(Integer id) {
+        String query = "from " + PlayerSchoolGrade.class.getName() + " psg where psg.fkPlayer = " + id;
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<PlayerSchoolGrade> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

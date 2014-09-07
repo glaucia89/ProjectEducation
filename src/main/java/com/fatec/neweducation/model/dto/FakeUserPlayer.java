@@ -2,11 +2,11 @@ package com.fatec.neweducation.model.dto;
 
 import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.PlayerSchoolGrade;
-import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.resources.Gender;
 import com.fatec.neweducation.model.resources.TypeUser;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by glaucia on 12/08/14.
@@ -18,12 +18,28 @@ public class FakeUserPlayer {
     private String password;
     private Date dateOfBirth;
     private Gender gender;
-    private Integer year;
-    private Integer classe;
-    private School school;
     private Integer idUser;
     private Integer idPlayer;
-    private Integer idPlayerSchoolGrade;
+    private User user;
+    private Player player;
+    private List<PlayerSchoolGrade> listSchool;
+
+    public FakeUserPlayer() {
+    }
+
+    public FakeUserPlayer(String name, String login, String password, Date dateOfBirth, Gender gender, Integer idUser, Integer idPlayer, User user, Player player, List<PlayerSchoolGrade> listSchool) {
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.idUser = idUser;
+        this.idPlayer = idPlayer;
+        this.user = user;
+        this.player = player;
+        this.listSchool = listSchool;
+    }
+
 
     public String getName() {
         return name;
@@ -81,41 +97,17 @@ public class FakeUserPlayer {
         this.idPlayer = idPlayer;
     }
 
-    public Integer getYear() {
-        return year;
+    public List<PlayerSchoolGrade> getListSchool() {
+        return listSchool;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setListSchool(List<PlayerSchoolGrade> listSchool) {
+        this.listSchool = listSchool;
     }
 
-    public Integer getClasse() {
-        return classe;
-    }
-
-    public void setClasse(Integer classe) {
-        this.classe = classe;
-    }
-
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School idSchool) {
-        this.school = idSchool;
-    }
-
-    public Integer getIdPlayerSchoolGrade() {
-        return idPlayerSchoolGrade;
-    }
-
-    public void setIdPlayerSchoolGrade(Integer idPlayerSchoolGrade) {
-        this.idPlayerSchoolGrade = idPlayerSchoolGrade;
-    }
 
     public User getUser() {
-        User user = new User();
-        user.setTypeUser(TypeUser.USUARIO);
+        this.user.setTypeUser(TypeUser.ESTUDANTE);
 
         if (idUser != null) {
             user.setId(this.getIdUser());
@@ -133,12 +125,11 @@ public class FakeUserPlayer {
             user.setPassword(this.getPassword());
         }
 
-        return user;
+        return this.user;
 
     }
 
     public Player getPlayer() {
-        Player player = new Player();
 
         if (idUser != null) {
             player.setFkUser(this.getUser());
@@ -155,45 +146,19 @@ public class FakeUserPlayer {
         return player;
     }
 
-    public PlayerSchoolGrade getPlayerSchoolGrade() {
-        PlayerSchoolGrade playerSchoolGrade = new PlayerSchoolGrade();
-
-        if (this.year != null) {
-            playerSchoolGrade.setYearClasse(this.getYear());
-        }
-
-        if (this.classe != null) {
-            playerSchoolGrade.setClasse(this.getClasse());
-        }
-
-        if (this.school != null) {
-            playerSchoolGrade.setFkSchool(this.getSchool());
-        }
-
-        if (this.idPlayer != null) {
-            playerSchoolGrade.setFkPlayer(this.getPlayer());
-        }
-
-        return playerSchoolGrade;
-    }
-
+   
     public void setUser(User user) {
-        this.setIdUser(user.getId());
-        this.setName(user.getNameUser());
-        this.setPassword(user.getPassword());
+        this.user = user;
+        this.setIdUser(this.user.getId());
+        this.setName(this.user.getNameUser());
+        this.setPassword(this.user.getPassword());
     }
 
     public void setPlayer(Player player) {
-        this.setIdPlayer(player.getId());
-        this.setDateOfBirth(player.getDateOfBirth());
-        this.setGender(player.getGender());
-    }
-
-    public void setPlayerSchoolGrade(PlayerSchoolGrade playerSchoolGrade) {
-        this.setIdPlayerSchoolGrade(playerSchoolGrade.getId());
-        this.setYear(playerSchoolGrade.getYearClasse());
-        this.setClasse(playerSchoolGrade.getClasse());
-        this.setSchool(playerSchoolGrade.getFkSchool());
+        this.player = player;
+        this.setIdPlayer(this.player.getId());
+        this.setDateOfBirth(this.player.getDateOfBirth());
+        this.setGender(this.player.getGender());
     }
 
 

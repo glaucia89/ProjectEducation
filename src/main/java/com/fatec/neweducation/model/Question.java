@@ -20,14 +20,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "question")
-public class Question  implements java.io.Serializable {
+public class Question implements java.io.Serializable {
+
+    private static final long serialVersionUID = 5L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "type_question")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private TypeQuestion typeQuestion;
 
     @Column(name = "hability")

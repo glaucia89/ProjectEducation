@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="" version="2.0">
-    <title>School</title>
+    <title>Estudante</title>
 
     <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/newEducation/assets/css/color.css"/>
@@ -28,7 +28,7 @@
 
     <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-<jsp:include page="templates/school/list.jsp"/>
+    <jsp:include page="templates/player/list.jsp"/>
 
 <jsp:include page="templates/layout/footer.jsp"/>
 

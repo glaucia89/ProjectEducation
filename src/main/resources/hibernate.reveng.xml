@@ -9,4 +9,5 @@
   <table-filter match-name="player_school_grade"/>
   <table-filter match-name="school"/>
   <table-filter match-name="player"/>
+  <table-filter match-name="standart"/>
 </hibernate-reverse-engineering>

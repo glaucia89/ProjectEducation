@@ -48,6 +48,7 @@
                   <value>com.fatec.neweducation.model.Player</value>
                   <value>com.fatec.neweducation.model.School</value>
                   <value>com.fatec.neweducation.model.PlayerSchoolGrade</value>
+                  <value>com.fatec.neweducation.model.Standart</value>
               </list>
           </property>
           <property name="hibernateProperties">

@@ -17,38 +17,49 @@
                 <div class="col-md-12 col-sm-12 pager">
                     <div class="row">
 
-                        <form role="form" id="formschoolplayergrade" method="post"
-                              modelAtribute="modelschoolplayergrade">
+                        <form role="form" id="playerSchoolAdd" method="post" modelAtribute="modelPlayerSchool">
                             <div class="form-horizontal" role="form">
-                                <label for="namestudent" class="col-sm-2 control-label">Aluno</label>
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <select name="player" class="form-control" id="namestudent">
-                                        <c:forEach var="item" items="${players}">
-                                            <option value="${item}">${item.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <label for="yearschool" class="col-sm-2 control-label">Escola:</label>
+                                <div class="form-horizontal" role="form">
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="year" type="number" class="form-control" id="yearschool"
-                                           placeholder="ano" value="${student.year}">
-                                </div>
-                                <label for="gradeschool" class="col-sm-2 control-label">Escola:</label>
+                                    <label for="schoolstudent" class="col-sm-2 control-label">Escola</label>
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="year" type="number" class="form-control" id="gradeschool"
-                                           placeholder="classe" value="${student.grade}">
+                                    <div class="col-sm-10" style="padding-bottom: 25px;">
+                                        <select name="fkSchool" class="form-control" id="schoolstudent">
+                                            <option value="${player.fkSchool}">${player.fkSchool.title}</option>
+                                            <c:forEach var="item" items="${schools}">
+                                                <option value="${item}">${item.title}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
+
+                                            <div class="form-horizontal" role="form">
+
+                                    <label for="yearschool" class="col-sm-2 control-label">Ano</label>
+
+                                    <div class="col-sm-10" style="padding-bottom: 25px;">
+                                        <input name="yearClasse" type="number" class="form-control" id="yearschool"
+                                               placeholder="Digite aqui o ano" value="${player.yearClasse}">
+                                    </div>
+                                </div>
+
+                                    <div class="form-horizontal" role="form">
+                                        <label for="gradeschool" class="col-sm-2 control-label">Classe</label>
+
+                                    <div class="col-sm-10" style="padding-bottom: 25px;">
+                                        <input name="classe" type="number" class="form-control" id="gradeschool"
+                                               placeholder="Digite aqui a classe" value="${player.classe}">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-info">Salvar</button>
+                                <a class="btn btn-info" href="${pageContext.request.contextPath}/player">Voltar</a>
                             </div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 

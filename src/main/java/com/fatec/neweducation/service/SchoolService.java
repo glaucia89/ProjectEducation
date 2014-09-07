@@ -9,15 +9,15 @@ import java.util.List;
  */
 public interface SchoolService {
 
-    public void saveSchool(School school);
+    public void save(School school);
 
-    public void deleteSchool(School school);
+    public void delete(School school);
 
-    public void updateSchool(School school);
+    public void update(School school);
 
-    public School findSchoolById(Integer id);
+    public School findById(Integer id);
 
     public List<School> findAll();
 
-    public void deleteSchoolbyId(Integer id);
+    public void deleteById(Integer id);
 }

@@ -10,7 +10,7 @@
 <div class="container-fluid panel-body">
     <div class="row">
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
-            <h1 class="page-header">${titulo}a</h1>
+            <h1 class="page-header">${titulo}</h1>
 
             <div class="row placeholders">
                 <div class="col-md-12 col-sm-12 pager">
@@ -21,26 +21,31 @@
                                 <label for="nameuser" class="col-sm-2 control-label">Nome</label>
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="name" type="text" class="form-control" id="nameuser"
-                                           placeholder="Digite o nome completo" value="${user.name}">
+                                    <input name="nameUser" type="text" class="form-control" id="nameuser"
+                                           placeholder="Digite o nome completo" value="${user.nameUser}">
                                 </div>
+                            </div>
+                            <div class="form-horizontal" role="form">
 
                                 <label for="loginuser" class="col-sm-2 control-label">Nome de usuario</label>
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="login" type="text" class="form-control" id="loginuser"
-                                           placeholder="Digite o nome de usuario" value="${user.login}">
+                                    <input name="loginUser" type="text" class="form-control" id="loginuser"
+                                           placeholder="Digite o nome de usuario" value="${user.loginUser}">
                                 </div>
+                            </div>
+                            <div class="form-horizontal" role="form">
 
                                 <label for="passworduser" class="col-sm-2 control-label">Senha</label>
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="password" type="text" class="form-control" id="passworduser"
+                                    <input name="password" type="password" class="form-control" id="passworduser"
                                            placeholder="Digite a senha" value="${user.password}">
                                 </div>
 
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                                           <button type="submit" class="btn btn-default">Submit</button>
+                                           <a class="btn btn-default" href="${pageContext.request.contextPath}/user">Voltar</a>
                         </form>
                     </div>
                 </div>

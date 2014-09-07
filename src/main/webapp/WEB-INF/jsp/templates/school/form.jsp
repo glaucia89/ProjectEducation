@@ -49,9 +49,9 @@
                                     </select>
                                 </div>
                             </div>
-                                        <button type="submit" class="btn btn-default">Salvar</button>
+                                        <button type="submit" class="btn btn-info">Salvar</button>
 
-                                        <button type="submit" class="btn btn-default">Voltar<a href="${pageContext.request.contextPath}/school" /></button>
+                                        <a class="btn btn-info" href="${pageContext.request.contextPath}/school">Voltar</a>
                         </form>
                     </div>
                 </div>

@@ -1,19 +1,17 @@
 package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.UserDAO;
-import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by glaucia on 14/08/14.
  */
-@Component
-//@Transactional
+@Repository
 public class UserDAOImpl implements UserDAO {
 
     private Session session;
@@ -54,9 +52,20 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> findAll() {
+        String query = "from " + User.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<User> list = session.createSQLQuery("select {user.*} from user").addEntity("user", User.class).list();
+        List<User> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
+    @Override
+    public List<User> findByType(String type) {
+        String query = "from " + User.class.getName() + " u where u.typeUser = '" + type + "'";
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<User> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

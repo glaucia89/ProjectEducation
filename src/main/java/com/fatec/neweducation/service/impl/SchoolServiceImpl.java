@@ -22,22 +22,22 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public void saveSchool(School school) {
+    public void save(School school) {
         dao.save(school);
     }
 
     @Override
-    public void deleteSchool(School school) {
+    public void delete(School school) {
         dao.delete(school);
     }
 
     @Override
-    public void updateSchool(School school) {
+    public void update(School school) {
         dao.update(school);
     }
 
     @Override
-    public School findSchoolById(Integer id) {
+    public School findById(Integer id) {
         return dao.getById(id);
     }
 
@@ -47,7 +47,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public void deleteSchoolbyId(Integer id) {
+    public void deleteById(Integer id) {
         School school = dao.getById(id);
         dao.delete(school);
     }

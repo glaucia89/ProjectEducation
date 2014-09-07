@@ -18,4 +18,6 @@ public interface PlayerSchoolGradeDAO {
     public void delete(PlayerSchoolGrade entity);
 
     public List<PlayerSchoolGrade> findAll();
+
+    public List<PlayerSchoolGrade> findByPlayer(Integer id);
 }

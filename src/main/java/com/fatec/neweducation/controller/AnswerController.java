@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by glaucia on 31/07/14.
  */
 @Controller
-@RequestMapping("/Answer/")
+@RequestMapping("/answer/")
 public class AnswerController {
 
     @Autowired

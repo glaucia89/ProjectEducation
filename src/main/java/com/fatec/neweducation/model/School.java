@@ -20,7 +20,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "school")
-public class School  implements java.io.Serializable {
+public class School implements java.io.Serializable {
+
+    private static final long serialVersionUID = 6L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

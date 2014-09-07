@@ -1,13 +1,16 @@
 package com.fatec.neweducation.model;
 // Generated 25/08/2014 21:45:35 by Hibernate Tools 3.6.0
 
-import javax.persistence.CascadeType;
+import com.fatec.neweducation.model.resources.TypeAnswer;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,14 +21,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "answer")
-public class Answer  implements java.io.Serializable {
+public class Answer implements java.io.Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "type_anwser")
-    private String typeAnswer;
+    @Enumerated(EnumType.STRING)
+    private TypeAnswer typeAnswer;
 
     @Column(name = "response")
     private String response;
@@ -39,13 +45,14 @@ public class Answer  implements java.io.Serializable {
     @Column(name = "is_correct")
     private Boolean isCorrect;
 
-    @Column(name = "fk_question")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
     private Question fkQuestion;
 
     public Answer() {
     }
 
-    public Answer(String typeAnswer, String response, String picture, String audio, Boolean isCorrect, Question fkQuestion) {
+    public Answer(TypeAnswer typeAnswer, String response, String picture, String audio, Boolean isCorrect, Question fkQuestion) {
        this.typeAnswer = typeAnswer;
        this.response = response;
        this.picture = picture;
@@ -61,11 +68,11 @@ public class Answer  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getTypeAnswer() {
+    public TypeAnswer getTypeAnswer() {
         return this.typeAnswer;
     }
     
-    public void setTypeAnswer(String typeAnswer) {
+    public void setTypeAnswer(TypeAnswer typeAnswer) {
         this.typeAnswer = typeAnswer;
     }
     public String getResponse() {

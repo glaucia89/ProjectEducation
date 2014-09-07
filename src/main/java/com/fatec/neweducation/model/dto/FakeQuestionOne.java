@@ -184,7 +184,7 @@ public class FakeQuestionOne {
         }
 
         if (typeAnswer != null) {
-            answer.setTypeAnswer(this.getTypeAnswer().getValor());
+            answer.setTypeAnswer(this.getTypeAnswer());
         }
 
         if (pictureA != null) {
@@ -209,7 +209,7 @@ public class FakeQuestionOne {
         }
 
         if (typeAnswer != null) {
-            answer.setTypeAnswer(this.getTypeAnswer().getValor());
+            answer.setTypeAnswer(this.getTypeAnswer());
         }
 
         if (pictureB != null) {
@@ -234,7 +234,7 @@ public class FakeQuestionOne {
         }
 
         if (typeAnswer != null) {
-            answer.setTypeAnswer(this.getTypeAnswer().getValor());
+            answer.setTypeAnswer(this.getTypeAnswer());
         }
 
         if (pictureC != null) {

@@ -2,20 +2,16 @@ package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.PlayerDAO;
 import com.fatec.neweducation.model.Player;
-import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by glaucia on 14/08/14.
  */
-@Component
-//@Transactional
+@Repository
 public class PlayerDAOImpl implements PlayerDAO {
 
     private Session session;
@@ -56,9 +52,20 @@ public class PlayerDAOImpl implements PlayerDAO {
 
     @Override
     public List<Player> findAll() {
+        String query = "from " + Player.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Player> list = session.createSQLQuery("select {player.*} from player").addEntity("player", Player.class).list();
+        List<Player> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
+    @Override
+    public List<Player> findByUser(Integer id) {
+        String query = "from " + Player.class.getName() + " p where p.fkUser.id = " + id;
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Player> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

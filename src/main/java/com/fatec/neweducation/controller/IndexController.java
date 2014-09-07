@@ -12,7 +12,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String defaultPage(ModelMap model) {
         //return "index";
-        return "/homeadmin";
+        return "/homeAdmin";
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -22,17 +22,17 @@ public class IndexController {
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String aboutPage(ModelMap model) {
-        return "aboutadmin";
+        return "aboutAdmin";
     }
 
     @RequestMapping(value = "/developer", method = RequestMethod.GET)
     public String developerPage(ModelMap model) {
-        return "developeradmin";
+        return "developerAdmin";
     }
 
     @RequestMapping(value = "/homeadmin", method = RequestMethod.GET)
     public String homePage(ModelMap model) {
         //Logica para definir se o usuario logado é admin ou não
-        return "/homeadmin";
+        return "/homeAdmin";
     }
 }

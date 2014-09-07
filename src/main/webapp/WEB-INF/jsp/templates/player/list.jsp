@@ -17,22 +17,19 @@
             <table class="table table-bordered">
                 <thead>
                 <tr class="success">
-                    <td>Titulo</td>
-                    <td>Cidadde</td>
-                    <td>Estado</td>
+                    <td>Nome</td>
                     <td>Ação</td>
                 </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${schools}" >
+                    <c:forEach var="item" items="${players}" >
                         <c:if test="${!empty item}">
                             <tr class="active">
-                                <td>${item.title}</td>
-                                <td>${item.city.valor}</td>
-                                <td>${item.state.valor}</td>
+                                <td>${item.fkUser.nameUser}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="${pageContext.request.contextPath}/school/edit${item.id}">Editar</a>
-                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/school/delete${item.id}">Deletar</a>
+                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/playerschool/add${item.id}">Adicionar Escola</a>
+                                    <a class="btn btn-warning" href="${pageContext.request.contextPath}/player/edit${item.id}">Editar</a>
+                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/player/delete${item.id}">Deletar</a>
                                 </td>
                             </tr>
                         </c:if>

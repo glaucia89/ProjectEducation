@@ -10,14 +10,16 @@ import java.util.List;
  */
 public interface GameService {
 
-    public void saveGame(Game game);
+    public void save(Game game);
 
-    public void updateGame(Game game);
+    public void update(Game game);
 
-    public void deleteGame(Game game);
+    public void delete(Integer id);
 
-    public List<Game> findAllGames();
+    public Game findById(Integer id);
 
-    public List<Game> findGameByUser(User user);
+    public List<Game> findAll();
+
+    public List<Game> findByUser(User user);
 
 }

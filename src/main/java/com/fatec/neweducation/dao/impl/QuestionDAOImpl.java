@@ -8,12 +8,12 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by glaucia on 14/08/14.
  */
-@Component
-//@Transactional
+@Repository
 public class QuestionDAOImpl implements QuestionDAO {
 
     private Session session;

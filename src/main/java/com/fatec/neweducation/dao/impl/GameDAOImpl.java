@@ -10,12 +10,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by glaucia on 14/08/14.
  */
-@Component
-//@Transactional
+@Repository
 public class GameDAOImpl implements GameDAO {
 
     private Session session;

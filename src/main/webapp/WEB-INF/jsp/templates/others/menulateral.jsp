@@ -15,11 +15,11 @@
         <ul class="dropdown-menu" role="menu">
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/school/add">
-                    Adicionar Nova Escola</a></li>
+                    Nova Escola</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/school">
-                    Listar Escolas</a></li>
+                    Escolas</a></li>
         </ul>
     </div>
     <div class="btn-group  btn-group-justified">
@@ -29,61 +29,61 @@
         <ul class="dropdown-menu" role="menu">
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaeone/add">
-                    Adicionar Nova Questão FAE1</a></li>
+                    Nova Questão FAE1</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaetwo/add">
-                    Adicionar Nova Questão FAE2</a></li>
+                    Nova Questão FAE2</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaethree/add">
-                    Adicionar Nova Questão FAE3</a></li>
+                    Nova Questão FAE3</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefour/add">
-                    Adicionar Nova Questão FAE4</a></li>
+                    Nova Questão FAE4</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefive/add">
-                    Adicionar Nova Questão FAE5</a></li>
+                    Nova Questão FAE5</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaesix/add">
-                    Adicionar Nova Questão FAE6</a></li>
+                    Nova Questão FAE6</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaeone">
-                    Listar Questões FAE1</a></li>
+                    Questões FAE1</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaetwo">
-                    Listar Questões FAE2</a></li>
+                    Questões FAE2</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaethree">
-                    Listar Questões FAE3</a></li>
+                    Questões FAE3</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefour
-                   Listar Questões FAE4</a></li>
-                   <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefour">
+                    Questões FAE4</a></li>
+            <li role="presentation">
                    <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefive">
-                        Listar Questões FAE5</a></li>
+                        Questões FAE5</a></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaesix">
-                    Listar Questões FAE6</a></li>
+                    Questões FAE6</a></li>
         </ul>
     </div>
     <div class="btn-group  btn-group-justified">
         <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-            Usuarios <span class="caret"></span>
+            Usuários <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/player/add">
-                    Adicionar Novo Estudante</a></li>
+                    Novo Estudante</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/admin/add">
-                    Adicionar Novo Educador</a></li>
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/user/add">
+                    Novo Educador</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/player">
-                    Listar Estudantes</a></li>
+                    Estudantes</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/admin">
-                    Listar Educadores</a></li>
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/user">
+                    Educadores</a></li>
         </ul>
     </div>
 

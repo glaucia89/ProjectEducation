@@ -7,30 +7,33 @@ import com.fatec.neweducation.service.PlayerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by glaucia on 31/07/14.
  */
 @Service
+@Transactional
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
     private PlayerDAO dao;
 
     @Override
-    public Integer savePlayer(Player player) {
+    public Integer save(Player player) {
         Integer id = dao.save(player);
         return id;
     }
 
     @Override
-    public void deletePlayer(Player player) {
+    public void delete(Integer id) {
+        Player player = this.findById(id);
         dao.delete(player);
 
     }
 
     @Override
-    public void updatePlayer(Player player) {
+    public void update(Player player) {
         dao.update(player);
     }
 
@@ -40,13 +43,12 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Player findPlayerById(Integer id) {
+    public Player findById(Integer id) {
         return dao.getById(id);
     }
 
     @Override
-    //TODO
-    public Player findPlayerByUser(User user) {
-        return null;
+    public List<Player> findByUser(User user) {
+        return dao.findByUser(user.getId());
     }
 }

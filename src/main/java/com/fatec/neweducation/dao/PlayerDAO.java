@@ -18,4 +18,6 @@ public interface PlayerDAO {
     public void delete(Player entity);
 
     public List<Player> findAll();
+
+    public List<Player> findByUser(Integer id);
 }

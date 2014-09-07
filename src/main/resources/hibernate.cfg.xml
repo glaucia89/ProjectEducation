@@ -27,5 +27,6 @@
     <mapping class="com.fatec.neweducation.model.PlayerSchoolGrade"/>
     <mapping class="com.fatec.neweducation.model.Question"/>
     <mapping class="com.fatec.neweducation.model.User"/>
+    <mapping class="com.fatec.neweducation.model.Standart"/>
   </session-factory>
 </hibernate-configuration>

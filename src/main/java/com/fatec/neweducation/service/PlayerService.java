@@ -10,15 +10,15 @@ import java.util.List;
  */
 public interface PlayerService {
 
-    public Integer savePlayer(Player player);
+    public Integer save(Player player);
 
-    public void deletePlayer(Player player);
+    public void delete(Integer id);
 
-    public void updatePlayer(Player player);
+    public void update(Player player);
 
     public List<Player> findAll();
 
-    public Player findPlayerById(Integer id);
+    public Player findById(Integer id);
 
-    public Player findPlayerByUser(User user);
+    public List<Player> findByUser(User user);
 }

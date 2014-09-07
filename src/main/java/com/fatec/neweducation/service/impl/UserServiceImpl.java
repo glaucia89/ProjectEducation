@@ -2,15 +2,18 @@ package com.fatec.neweducation.service.impl;
 
 import com.fatec.neweducation.dao.UserDAO;
 import com.fatec.neweducation.model.User;
+import com.fatec.neweducation.model.resources.TypeUser;
 import com.fatec.neweducation.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by glaucia on 31/07/14.
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -18,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     //TODO - incluir mensagem de erro
-    public Integer saveUser(User user) {
+    public Integer save(User user) {
         if (this.isAvailableName(user.getNameUser())) {
             Integer id = dao.save(user);
             return id;
@@ -27,18 +30,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(User user) {
+    public void delete(Integer id) {
+        User user = this.findById(id);
         dao.delete(user);
     }
 
     @Override
-    public void updateUser(User user) {
+    public void update(User user) {
         dao.update(user);
 
     }
 
     @Override
-    public User findUserById(Integer id) {
+    public User findById(Integer id) {
         return dao.getById(id);
     }
 
@@ -59,5 +63,11 @@ public class UserServiceImpl implements UserService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<User> findByType(TypeUser type) {
+        List<User> list = dao.findByType(type.toString());
+        return list;
     }
 }

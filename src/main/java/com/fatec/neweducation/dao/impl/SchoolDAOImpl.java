@@ -55,9 +55,10 @@ public class SchoolDAOImpl implements SchoolDAO {
 
     @Override
     public List<School> findAll() {
+        String query = "from " + School.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<School> list = session.createSQLQuery("select {school.*} from school").addEntity("school", School.class).list();
+        List<School> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

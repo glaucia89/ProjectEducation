@@ -7,12 +7,12 @@ import com.fatec.neweducation.model.Question;
  */
 public interface QuestionService {
 
-    public void saveQuestion(Question question);
+    public void save(Question question);
 
-    public void deleteQuestion(Question question);
+    public void delete(Integer id);
 
-    public void updateQuestion(Question question);
+    public void update(Question question);
 
-    public Question findQuestionById(Integer id);
+    public Question findById(Integer id);
 
 }

@@ -8,11 +8,13 @@ import com.fatec.neweducation.service.QuestionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by glaucia on 31/07/14.
  */
 @Service
+@Transactional
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
@@ -21,27 +23,28 @@ public class QuestionServiceImpl implements QuestionService {
     private AnswerService answerService;
 
     @Override
-    public void saveQuestion(Question question) {
+    public void save(Question question) {
         dao.save(question);
     }
 
     @Override
-    public void deleteQuestion(Question question) {
+    public void delete(Integer id) {
+        Question question = this.findById(id);
         dao.delete(question);
     }
 
     @Override
-    public void updateQuestion(Question question) {
+    public void update(Question question) {
         dao.update(question);
         List<Answer> listAnswer;
-        listAnswer = answerService.findAnswerByQuestion(question);
+        listAnswer = answerService.findByQuestion(question);
         for (Answer answer : listAnswer) {
-            answerService.updateAnswer(answer);
+            answerService.update(answer);
         }
     }
 
     @Override
-    public Question findQuestionById(Integer id) {
+    public Question findById(Integer id) {
         return dao.getById(id);
     }
 }
