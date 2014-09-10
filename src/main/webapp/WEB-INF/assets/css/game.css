@@ -14,3 +14,8 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.centralizado {
+    margin: 0 auto;
+    float: none;
+}

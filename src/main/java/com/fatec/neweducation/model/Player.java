@@ -52,6 +52,14 @@ public class Player implements java.io.Serializable {
        this.dateOfBirth = dateOfBirth;
        this.gender = gender;
     }
+
+    public Player(Integer id, User fkUser, Date dateOfBirth, Gender gender) {
+        this.id = id;
+        this.fkUser = fkUser;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
+
    
     public Integer getId() {
         return this.id;

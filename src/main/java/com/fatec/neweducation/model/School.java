@@ -47,6 +47,14 @@ public class School implements java.io.Serializable {
        this.city = city;
        this.state = state;
     }
+
+    public School(Integer id, String title, City city, State state) {
+        this.id = id;
+        this.title = title;
+        this.city = city;
+        this.state = state;
+    }
+
    
     public Integer getId() {
         return this.id;

@@ -2,12 +2,10 @@ package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.QuestionDAO;
 import com.fatec.neweducation.model.Question;
-import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -20,6 +20,9 @@ public class FakeQuestionFour {
     private String pictureA;
     private String pictureB;
     private String pictureC;
+    private String textA;
+    private String textB;
+    private String textC;
     private Boolean isCorrectA;
     private Boolean isCorrectB;
     private Boolean isCorrectC;

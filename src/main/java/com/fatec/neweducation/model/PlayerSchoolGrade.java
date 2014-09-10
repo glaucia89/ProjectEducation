@@ -57,6 +57,15 @@ public class PlayerSchoolGrade implements java.io.Serializable {
         this.fkStandart = fkStandart;
     }
 
+    public PlayerSchoolGrade(Integer yearClasse, Integer classe, Player fkPlayer, School fkSchool, Standart fkStandart) {
+        this.yearClasse = yearClasse;
+        this.classe = classe;
+        this.fkPlayer = fkPlayer;
+        this.fkSchool = fkSchool;
+        this.fkStandart = fkStandart;
+    }
+
+
     public Integer getId() {
         return this.id;
     }

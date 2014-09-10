@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-xs-6 col-md-3 placeholder">
                     <a href="${pageContext.request.contextPath}/question" class="thumbnail" >
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/question.jpg"  style="width: 200px; height: 200px;"/>
+                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/question.jpg"  style="width: 200px; height: 200px;"/>
                     </a>
                     <h4>Questões</h4>
                 </div>

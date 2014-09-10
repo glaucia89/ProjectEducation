@@ -60,7 +60,25 @@ public class Answer implements java.io.Serializable {
        this.isCorrect = isCorrect;
        this.fkQuestion = fkQuestion;
     }
-   
+
+    public Answer(Integer id, TypeAnswer typeAnswer, String response, String picture, String audio, Boolean isCorrect, Question fkQuestion) {
+        this.id = id;
+        this.typeAnswer = typeAnswer;
+        this.response = response;
+        this.picture = picture;
+        this.audio = audio;
+        this.isCorrect = isCorrect;
+        this.fkQuestion = fkQuestion;
+    }
+
+    public Answer(TypeAnswer typeAnswer, String response, String picture, String audio, Boolean isCorrect) {
+        this.typeAnswer = typeAnswer;
+        this.response = response;
+        this.picture = picture;
+        this.audio = audio;
+        this.isCorrect = isCorrect;
+    }
+
     public Integer getId() {
         return this.id;
     }

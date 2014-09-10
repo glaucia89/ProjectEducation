@@ -39,18 +39,27 @@ public class Question implements java.io.Serializable {
     @Column(name = "asking")
     private String asking;
 
-    @Column(name = "level")
-     private Integer level;
+    @Column(name = "difficulty")
+    private Integer difficulty;
 
     public Question() {
     }
 
-    public Question(TypeQuestion typeQuestion, Hability hability, String asking, Integer level) {
+    public Question(TypeQuestion typeQuestion, Hability hability, String asking, Integer difficulty) {
        this.typeQuestion = typeQuestion;
        this.hability = hability;
        this.asking = asking;
-       this.level = level;
+        this.difficulty = difficulty;
     }
+
+    public Question(Integer id, TypeQuestion typeQuestion, Hability hability, String asking, Integer difficulty) {
+        this.id = id;
+        this.typeQuestion = typeQuestion;
+        this.hability = hability;
+        this.asking = asking;
+        this.difficulty = difficulty;
+    }
+
    
     public Integer getId() {
         return this.id;
@@ -80,13 +89,15 @@ public class Question implements java.io.Serializable {
     public void setAsking(String asking) {
         this.asking = asking;
     }
-    public Integer getLevel() {
-        return this.level;
+
+    public Integer getDifficulty() {
+        return difficulty;
     }
-    
-    public void setLevel(Integer level) {
-        this.level = level;
+
+    public void setDifficulty(Integer difficulty) {
+        this.difficulty = difficulty;
     }
+
 
 
 

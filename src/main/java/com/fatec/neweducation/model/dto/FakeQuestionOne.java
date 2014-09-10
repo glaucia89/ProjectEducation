@@ -26,9 +26,45 @@ public class FakeQuestionOne {
     private Boolean isCorrectC;
     private String asking;
     private Hability hability;
-    private Integer level;
+    private Integer dificulty;
     private TypeQuestion typeQuestion;
     private TypeAnswer typeAnswer;
+
+    public FakeQuestionOne(Integer idQuestion, Integer idAnswerA, Integer idAnswerB, Integer idAnswerC, String pictureA, String pictureB, String pictureC, Boolean isCorrectA, Boolean isCorrectB, Boolean isCorrectC, String asking, Hability hability, Integer dificulty, TypeQuestion typeQuestion, TypeAnswer typeAnswer) {
+        this.idQuestion = idQuestion;
+        this.idAnswerA = idAnswerA;
+        this.idAnswerB = idAnswerB;
+        this.idAnswerC = idAnswerC;
+        this.pictureA = pictureA;
+        this.pictureB = pictureB;
+        this.pictureC = pictureC;
+        this.isCorrectA = isCorrectA;
+        this.isCorrectB = isCorrectB;
+        this.isCorrectC = isCorrectC;
+        this.asking = asking;
+        this.hability = hability;
+        this.dificulty = dificulty;
+        this.typeQuestion = typeQuestion;
+        this.typeAnswer = typeAnswer;
+    }
+
+    public FakeQuestionOne(String pictureA, String pictureB, String pictureC, Boolean isCorrectA, Boolean isCorrectB, Boolean isCorrectC, String asking, Hability hability, Integer dificulty, TypeQuestion typeQuestion, TypeAnswer typeAnswer) {
+        this.pictureA = pictureA;
+        this.pictureB = pictureB;
+        this.pictureC = pictureC;
+        this.isCorrectA = isCorrectA;
+        this.isCorrectB = isCorrectB;
+        this.isCorrectC = isCorrectC;
+        this.asking = asking;
+        this.hability = hability;
+        this.dificulty = dificulty;
+        this.typeQuestion = typeQuestion;
+        this.typeAnswer = typeAnswer;
+    }
+
+    public FakeQuestionOne() {
+    }
+
 
 
     public Integer getIdQuestion() {
@@ -125,14 +161,6 @@ public class FakeQuestionOne {
 
     public void setHability(Hability hability) {
         this.hability = hability;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
     }
 
     public TypeQuestion getTypeQuestion() {
@@ -246,6 +274,14 @@ public class FakeQuestionOne {
         }
 
         return answer;
+    }
+
+    public Integer getDificulty() {
+        return dificulty;
+    }
+
+    public void setDificulty(Integer dificulty) {
+        this.dificulty = dificulty;
     }
 
 }

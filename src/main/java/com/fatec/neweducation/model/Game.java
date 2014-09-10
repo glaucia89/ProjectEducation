@@ -49,6 +49,15 @@ public class Game implements java.io.Serializable {
        this.fkQuestionGame = fkQuestionGame;
        this.isCorrectAnswer = isCorrectAnswer;
     }
+
+    public Game(Integer id, Date creationDate, PlayerSchoolGrade fkPlayerSchoolGrade, Question fkQuestionGame, Boolean isCorrectAnswer) {
+        this.id = id;
+        this.creationDate = creationDate;
+        this.fkPlayerSchoolGrade = fkPlayerSchoolGrade;
+        this.fkQuestionGame = fkQuestionGame;
+        this.isCorrectAnswer = isCorrectAnswer;
+    }
+
    
     public Integer getId() {
         return this.id;

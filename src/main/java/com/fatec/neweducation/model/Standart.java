@@ -39,8 +39,8 @@ public class Standart implements Serializable {
     @Enumerated(EnumType.STRING)
     private Hability habitlity;
 
-    @Column(name = "level")
-    private Integer level;
+    @Column(name = "difficulty")
+    private Integer difficulty;
 
     @Column(name = "creation_date")
     private Date creationDate;
@@ -52,13 +52,21 @@ public class Standart implements Serializable {
     public Standart() {
     }
 
-    public Standart(Integer id, Hability habitlity, Integer level, Date creationDate, Player player) {
+    public Standart(Integer id, Hability habitlity, Integer difficulty, Date creationDate, Player player) {
         this.id = id;
         this.habitlity = habitlity;
-        this.level = level;
+        this.difficulty = difficulty;
         this.creationDate = creationDate;
         this.player = player;
     }
+
+    public Standart(Hability habitlity, Integer difficulty, Date creationDate, Player player) {
+        this.habitlity = habitlity;
+        this.difficulty = difficulty;
+        this.creationDate = creationDate;
+        this.player = player;
+    }
+
 
     public Integer getId() {
         return id;
@@ -102,15 +110,6 @@ public class Standart implements Serializable {
         this.habitlity = habitlity;
     }
 
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-
     public Date getCreationDate() {
         return creationDate;
     }
@@ -127,5 +126,12 @@ public class Standart implements Serializable {
         this.player = player;
     }
 
+    public Integer getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Integer difficulty) {
+        this.difficulty = difficulty;
+    }
 
 }
