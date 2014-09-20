@@ -20,21 +20,8 @@
                         <form role="form" id="playerSchoolAdd" method="post" modelAtribute="modelPlayerSchool">
                             <div class="form-horizontal" role="form">
 
+
                                 <div class="form-horizontal" role="form">
-
-                                    <label for="schoolstudent" class="col-sm-2 control-label">Escola</label>
-
-                                    <div class="col-sm-10" style="padding-bottom: 25px;">
-                                        <select name="fkSchool" class="form-control" id="schoolstudent">
-                                            <option value="${player.fkSchool}">${player.fkSchool.title}</option>
-                                            <c:forEach var="item" items="${schools}">
-                                                <option value="${item}">${item.title}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                            <div class="form-horizontal" role="form">
 
                                     <label for="yearschool" class="col-sm-2 control-label">Ano</label>
 

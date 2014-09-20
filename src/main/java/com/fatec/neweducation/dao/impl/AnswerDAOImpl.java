@@ -6,7 +6,6 @@ import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -56,9 +55,19 @@ public class AnswerDAOImpl implements AnswerDAO {
 
     @Override
     public List<Answer> findAll() {
+        String query = "from " + Answer.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Answer> list = session.createSQLQuery("select {answer.*} from answer").addEntity("answer", Answer.class).list();
+        List<Answer> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
+    @Override
+    public List<Answer> executeQuery(String query) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Answer> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

@@ -63,5 +63,14 @@ public class SchoolDAOImpl implements SchoolDAO {
         return list;
     }
 
+    @Override
+    public List<School> executeQuery(String query) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<School> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
 
 }

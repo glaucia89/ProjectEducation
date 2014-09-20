@@ -2,14 +2,10 @@ package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.GameDAO;
 import com.fatec.neweducation.model.Game;
-import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -56,9 +52,19 @@ public class GameDAOImpl implements GameDAO {
 
     @Override
     public List<Game> findAll() {
+        String query = "from " + Game.class.getName();
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Game> list = session.createSQLQuery("select {game.*} from game").addEntity("game", Game.class).list();
+        List<Game> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
+
+    @Override
+    public List<Game> executeQuery(String query) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Game> list = session.createQuery(query).list();
         tx.commit();
         return list;
     }

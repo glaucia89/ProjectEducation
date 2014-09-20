@@ -7,13 +7,11 @@ import com.fatec.neweducation.service.PlayerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by glaucia on 31/07/14.
  */
 @Service
-@Transactional
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
@@ -49,6 +47,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public List<Player> findByUser(User user) {
-        return dao.findByUser(user.getId());
+        String query = "from " + Player.class.getName() + " p where p.fkUser.id = " + user.getId();
+        return this.dao.executeQuery(query);
     }
 }

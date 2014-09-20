@@ -18,4 +18,6 @@ public interface AnswerDAO {
     public void delete(Answer entity);
 
     public List<Answer> findAll();
+
+    public List<Answer> executeQuery(String query);
 }

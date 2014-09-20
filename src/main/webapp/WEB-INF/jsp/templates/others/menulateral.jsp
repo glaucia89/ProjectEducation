@@ -28,41 +28,41 @@
         </button>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaeone/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE1/add">
                     Nova Questão FAE1</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaetwo/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE2/add">
                     Nova Questão FAE2</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaethree/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE3/add">
                     Nova Questão FAE3</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefour/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE4/add">
                     Nova Questão FAE4</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefive/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE5/add">
                     Nova Questão FAE5</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaesix/add">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE6/add">
                     Nova Questão FAE6</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaeone">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE1">
                     Questões FAE1</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaetwo">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE2">
                     Questões FAE2</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaethree">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE3">
                     Questões FAE3</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefour">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE4">
                     Questões FAE4</a></li>
             <li role="presentation">
-                   <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaefive">
-                        Questões FAE5</a></li>
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE5">
+                    Questões FAE5</a></li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/questionfaesix">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/question/FAE6">
                     Questões FAE6</a></li>
         </ul>
     </div>

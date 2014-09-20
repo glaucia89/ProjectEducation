@@ -29,7 +29,7 @@ public class Answer implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "type_anwser")
+    @Column(name = "type_answer")
     @Enumerated(EnumType.STRING)
     private TypeAnswer typeAnswer;
 
@@ -46,7 +46,7 @@ public class Answer implements java.io.Serializable {
     private Boolean isCorrect;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "fk_question")
     private Question fkQuestion;
 
     public Answer() {

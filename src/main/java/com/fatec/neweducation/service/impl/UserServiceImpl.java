@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by glaucia on 31/07/14.
  */
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -52,7 +51,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    //TODO
     public User findByName(String name) {
         return null;
     }
@@ -67,7 +65,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findByType(TypeUser type) {
-        List<User> list = dao.findByType(type.toString());
-        return list;
+        String query = "from " + User.class.getName() + " u where u.typeUser = '" + type + "'";
+        return this.dao.executeQuery(query);
     }
 }

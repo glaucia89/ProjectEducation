@@ -2,6 +2,7 @@ package com.fatec.neweducation.dao;
 
 
 import com.fatec.neweducation.model.Player;
+import com.fatec.neweducation.model.Question;
 import java.util.List;
 
 /**
@@ -19,5 +20,5 @@ public interface PlayerDAO {
 
     public List<Player> findAll();
 
-    public List<Player> findByUser(Integer id);
+    public List<Player> executeQuery(String query);
 }

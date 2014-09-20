@@ -45,14 +45,13 @@ public class PlayerSchoolGradeServiceImpl implements PlayerSchoolGradeService {
     }
 
     @Override
-    //TODO
     public List<PlayerSchoolGrade> findByPlayer(Player player) {
-        return null;
+        String query = "from " + PlayerSchoolGrade.class.getName() + " psg where psg.fkPlayer.id = " + player.getId();
+        return this.dao.executeQuery(query);
     }
 
     @Override
     public PlayerSchoolGrade findById(Integer id) {
-        PlayerSchoolGrade psg = dao.getById(id);
-        return psg;
+        return dao.getById(id);
     }
 }

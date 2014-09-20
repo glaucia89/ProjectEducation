@@ -12,35 +12,34 @@
         <div class="col-md-2 col-sm-2" style="position:fixed">
             <jsp:include page="../others/menulateral.jsp"/>
         </div>
-            <div class="col-md-8 col-sm-8 main col-md-offset-2 col-sm-offset-2">
-                <h1 class="page-header">${title}</h1>
+        <div class="col-md-8 col-sm-8 main col-md-offset-2 col-sm-offset-2">
+            <h1 class="page-header">${title}</h1>
             <table class="table table-bordered">
                 <thead>
-                <tr class="success">
-                    <td>Titulo</td>
-                    <td>Cidadde</td>
-                    <td>Estado</td>
-                    <td>Ação</td>
-                </tr>
+                    <tr class="success">
+                        <td>Titulo</td>
+                        <td>Cidadde</td>
+                        <td>Estado</td>
+                        <td>Ação</td>
+                    </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${schools}" >
-                        <c:if test="${!empty item}">
-                            <tr class="active">
-                                <td>${item.title}</td>
-                                <td>${item.city.valor}</td>
-                                <td>${item.state.valor}</td>
-                                <td>
-                                    <a class="btn btn-warning" href="${pageContext.request.contextPath}/school/edit${item.id}">Editar</a>
-                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/school/delete${item.id}">Deletar</a>
-                                </td>
-                            </tr>
-                        </c:if>
-                    </c:forEach>
+                <c:forEach var="item" items="${schools}" >
+                    <c:if test="${!empty item}">
+                        <tr class="active">
+                            <td>${item.title}</td>
+                            <td>${item.city.valor}</td>
+                            <td>${item.state.valor}</td>
+                            <td>
+                                <a class="btn btn-warning" href="${pageContext.request.contextPath}/school/edit${item.id}">Editar</a>
+                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/school/delete${item.id}">Deletar</a>
+                            </td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
                 </tbody>
             </table>
 
         </div>
     </div>
 </div>
-

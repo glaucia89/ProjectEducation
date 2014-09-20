@@ -34,37 +34,15 @@ public class PlayerSchoolGrade implements java.io.Serializable {
     private Integer classe;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "fk_player")
     private Player fkPlayer;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "fk_school")
     private School fkSchool;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private Standart fkStandart;
 
     public PlayerSchoolGrade() {
     }
-
-    public PlayerSchoolGrade(Integer id, Integer yearClasse, Integer classe, Player fkPlayer, School fkSchool, Standart fkStandart) {
-        this.id = id;
-        this.yearClasse = yearClasse;
-        this.classe = classe;
-        this.fkPlayer = fkPlayer;
-        this.fkSchool = fkSchool;
-        this.fkStandart = fkStandart;
-    }
-
-    public PlayerSchoolGrade(Integer yearClasse, Integer classe, Player fkPlayer, School fkSchool, Standart fkStandart) {
-        this.yearClasse = yearClasse;
-        this.classe = classe;
-        this.fkPlayer = fkPlayer;
-        this.fkSchool = fkSchool;
-        this.fkStandart = fkStandart;
-    }
-
 
     public Integer getId() {
         return this.id;
@@ -102,14 +80,7 @@ public class PlayerSchoolGrade implements java.io.Serializable {
         this.fkSchool = fkSchool;
     }
 
-    public Standart getFkStandart() {
-        return fkStandart;
-    }
-
-    public void setFkStandart(Standart fkStandart) {
-        this.fkStandart = fkStandart;
-    }
-
+   
 
 
 }

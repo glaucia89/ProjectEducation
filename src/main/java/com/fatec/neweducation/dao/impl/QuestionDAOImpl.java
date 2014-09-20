@@ -58,4 +58,13 @@ public class QuestionDAOImpl implements QuestionDAO {
         tx.commit();
         return list;
     }
+
+    @Override
+    public List<Question> executeQuery(String query) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Question> list = session.createQuery(query).list();
+        tx.commit();
+        return list;
+    }
 }

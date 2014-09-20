@@ -51,10 +51,12 @@ public class PlayerSchoolGradeController {
     }
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.POST)
-    public String save(@ModelAttribute("modelPlayer") PlayerSchoolGrade modelPlayerSchool) {
+    public String save(@ModelAttribute("modelPlayer") PlayerSchoolGrade modelPlayerSchool, @PathVariable Integer id) {
+
+        modelPlayerSchool.setFkPlayer(this.playerService.findById(id));
         ModelAndView modelAndView = new ModelAndView("homePlayerSchool");
         this.playerSchoolGradeService.save(modelPlayerSchool);
-        modelAndView.addObject("message", "Escola " + modelPlayerSchool.getFkSchool().getTitle() + " foi adicionada com sucesso ao aluno");
+        //modelAndView.addObject("message", "Escola " + modelPlayerSchool.getFkSchool().getTitle() + " foi adicionada com sucesso ao aluno");
         return "redirect:/player";
     }
 

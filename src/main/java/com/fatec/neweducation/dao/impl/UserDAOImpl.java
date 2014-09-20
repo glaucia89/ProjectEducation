@@ -1,6 +1,7 @@
 package com.fatec.neweducation.dao.impl;
 
 import com.fatec.neweducation.dao.UserDAO;
+import com.fatec.neweducation.model.School;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.util.HibernateUtil;
 import java.util.List;
@@ -61,8 +62,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> findByType(String type) {
-        String query = "from " + User.class.getName() + " u where u.typeUser = '" + type + "'";
+    public List<User> executeQuery(String query) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         List<User> list = session.createQuery(query).list();

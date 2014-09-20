@@ -61,8 +61,7 @@ public class PlayerDAOImpl implements PlayerDAO {
     }
 
     @Override
-    public List<Player> findByUser(Integer id) {
-        String query = "from " + Player.class.getName() + " p where p.fkUser.id = " + id;
+    public List<Player> executeQuery(String query) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         List<Player> list = session.createQuery(query).list();

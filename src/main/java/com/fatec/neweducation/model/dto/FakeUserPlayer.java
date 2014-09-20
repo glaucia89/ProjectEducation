@@ -2,16 +2,21 @@ package com.fatec.neweducation.model.dto;
 
 import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.PlayerSchoolGrade;
+import com.fatec.neweducation.model.Standart;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.resources.Gender;
 import com.fatec.neweducation.model.resources.TypeUser;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by glaucia on 12/08/14.
  */
-public class FakeUserPlayer {
+public class FakeUserPlayer implements Serializable {
+
+    private static final long serialVersionUID = 9L;
 
     private String name;
     private String login;
@@ -20,26 +25,27 @@ public class FakeUserPlayer {
     private Gender gender;
     private Integer idUser;
     private Integer idPlayer;
+
     private User user;
+
     private Player player;
+
+    private PlayerSchoolGrade psg;
+
+    private Standart standart;
+
     private List<PlayerSchoolGrade> listSchool;
 
+    private List<Standart> listStandart;
+
     public FakeUserPlayer() {
+        this.user = new User();
+        this.player = new Player();
+        this.psg = new PlayerSchoolGrade();
+        this.standart = new Standart();
+        this.listSchool = new LinkedList<PlayerSchoolGrade>();
+        this.listStandart = new LinkedList<Standart>();
     }
-
-    public FakeUserPlayer(String name, String login, String password, Date dateOfBirth, Gender gender, Integer idUser, Integer idPlayer, User user, Player player, List<PlayerSchoolGrade> listSchool) {
-        this.name = name;
-        this.login = login;
-        this.password = password;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.idUser = idUser;
-        this.idPlayer = idPlayer;
-        this.user = user;
-        this.player = player;
-        this.listSchool = listSchool;
-    }
-
 
     public String getName() {
         return name;
@@ -106,6 +112,30 @@ public class FakeUserPlayer {
     }
 
 
+    public List<Standart> getListStandart() {
+        return listStandart;
+    }
+
+    public void setListStandart(List<Standart> listStandart) {
+        this.listStandart = listStandart;
+    }
+
+    public PlayerSchoolGrade getPsg() {
+        return psg;
+    }
+
+    public void setPsg(PlayerSchoolGrade psg) {
+        this.psg = psg;
+    }
+
+    public Standart getStandart() {
+        return standart;
+    }
+
+    public void setStandart(Standart standart) {
+        this.standart = standart;
+    }
+
     public User getUser() {
         this.user.setTypeUser(TypeUser.ESTUDANTE);
 
@@ -124,6 +154,7 @@ public class FakeUserPlayer {
         if (password != null) {
             user.setPassword(this.getPassword());
         }
+        user.setTypeUser(TypeUser.ESTUDANTE);
 
         return this.user;
 
@@ -131,8 +162,10 @@ public class FakeUserPlayer {
 
     public Player getPlayer() {
 
-        if (idUser != null) {
-            player.setFkUser(this.getUser());
+        this.getUser();
+
+        if (idPlayer != null) {
+            player.setId(this.getIdPlayer());
         }
 
         if (dateOfBirth != null) {
@@ -143,14 +176,16 @@ public class FakeUserPlayer {
             player.setGender(this.getGender());
         }
 
+        player.setFkUser(user);
+
         return player;
     }
 
-   
     public void setUser(User user) {
         this.user = user;
         this.setIdUser(this.user.getId());
         this.setName(this.user.getNameUser());
+        this.setLogin(this.user.getLoginUser());
         this.setPassword(this.user.getPassword());
     }
 
@@ -160,6 +195,5 @@ public class FakeUserPlayer {
         this.setDateOfBirth(this.player.getDateOfBirth());
         this.setGender(this.player.getGender());
     }
-
 
 }

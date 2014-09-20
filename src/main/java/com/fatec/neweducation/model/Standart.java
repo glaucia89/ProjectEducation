@@ -8,7 +8,7 @@ package com.fatec.neweducation.model;
 
 import com.fatec.neweducation.model.resources.Hability;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,6 +20,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -43,30 +45,15 @@ public class Standart implements Serializable {
     private Integer difficulty;
 
     @Column(name = "creation_date")
+    @Temporal(value = TemporalType.DATE)
     private Date creationDate;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private Player player;
+    @JoinColumn(name = "fk_player")
+    private Player fkPlayer;
 
     public Standart() {
     }
-
-    public Standart(Integer id, Hability habitlity, Integer difficulty, Date creationDate, Player player) {
-        this.id = id;
-        this.habitlity = habitlity;
-        this.difficulty = difficulty;
-        this.creationDate = creationDate;
-        this.player = player;
-    }
-
-    public Standart(Hability habitlity, Integer difficulty, Date creationDate, Player player) {
-        this.habitlity = habitlity;
-        this.difficulty = difficulty;
-        this.creationDate = creationDate;
-        this.player = player;
-    }
-
 
     public Integer getId() {
         return id;
@@ -74,32 +61,6 @@ public class Standart implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Standart)) {
-            return false;
-        }
-        Standart other = (Standart) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.fatec.neweducation.model.Standart[ id=" + id + " ]";
     }
 
     public Hability getHabitlity() {
@@ -110,6 +71,14 @@ public class Standart implements Serializable {
         this.habitlity = habitlity;
     }
 
+    public Integer getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Integer difficulty) {
+        this.difficulty = difficulty;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -118,20 +87,12 @@ public class Standart implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public Player getPlayer() {
-        return player;
+    public Player getFkPlayer() {
+        return fkPlayer;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public Integer getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Integer difficulty) {
-        this.difficulty = difficulty;
+    public void setFkPlayer(Player fkPlayer) {
+        this.fkPlayer = fkPlayer;
     }
 
 }

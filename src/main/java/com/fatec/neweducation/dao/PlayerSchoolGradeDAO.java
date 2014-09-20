@@ -20,4 +20,6 @@ public interface PlayerSchoolGradeDAO {
     public List<PlayerSchoolGrade> findAll();
 
     public List<PlayerSchoolGrade> findByPlayer(Integer id);
+
+    public List<PlayerSchoolGrade> executeQuery(String query);
 }

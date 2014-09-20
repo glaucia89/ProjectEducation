@@ -2,6 +2,7 @@ package com.fatec.neweducation.service.impl;
 
 import com.fatec.neweducation.dao.AnswerDAO;
 import com.fatec.neweducation.model.Answer;
+import com.fatec.neweducation.model.Game;
 import com.fatec.neweducation.model.Question;
 import com.fatec.neweducation.service.AnswerService;
 import java.util.LinkedList;
@@ -45,10 +46,9 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    //Preciso verificar como fazer ... acho que deve existir um jeito mais fácil do que montar um SQL
     public List<Answer> findByQuestion(Question question) {
-        List<Answer> listAnswer = new LinkedList<Answer>();
-        return listAnswer;
+        String query = "from " + Answer.class.getName() + " a where a.fkQuestion.id = " + question.getId();
+        return this.dao.executeQuery(query);
     }
 
 }

@@ -46,9 +46,9 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    //TODO melhor jeito para pesquisar por 1 atributo
     public List<Game> findByUser(User user) {
-        return null;
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId();
+        return this.dao.executeQuery(query);
     }
 
     @Override
