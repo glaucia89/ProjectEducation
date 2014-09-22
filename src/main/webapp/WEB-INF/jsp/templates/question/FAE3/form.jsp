@@ -66,7 +66,7 @@
 
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
                                     <div class="ng-binding" >
-                                        <img class="img-responsive img-rounded center-block" src="${pageContext.request.contextPath}/assets/img/bancoImg/{{pictureloadA}}.png"  style="width: 200px; height: 200px;background-color: #FFFFFF"/>
+                                        <img class="img-responsive img-rounded center-block" ng-src="${pageContext.request.contextPath}/assets/img/bancoImg/{{pictureloadA}}.png"  style="width: 200px; height: 200px;background-color: #FFFFFF"/>
                                     </div>
                                 </div>
 
@@ -87,16 +87,16 @@
                                                ng-model="correctB">Marque se está correta
                                     </label>
                                 </div>
-                                </div>
 
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
                                     <div class="ng-binding" >
-                                        <img class="img-responsive img-rounded center-block" src="${pageContext.request.contextPath}/assets/img/bancoImg/{{pictureloadB}}.png"  style="width: 200px; height: 200px;background-color: #FFFFFF"/>
+                                        <img class="img-responsive img-rounded center-block" ng-src="${pageContext.request.contextPath}/assets/img/bancoImg/{{pictureloadB}}.png"  style="width: 200px; height: 200px;background-color: #FFFFFF"/>
                                     </div>
                                 </div>
 
                             </div>
 
+                            </div>
                     </div>
                     <button type="submit" class="btn btn-info">Salvar</button>
                             <a class="btn btn-info" href="${pageContext.request.contextPath}/question/FAE3">Voltar</a>

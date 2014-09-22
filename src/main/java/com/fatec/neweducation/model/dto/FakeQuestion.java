@@ -9,8 +9,6 @@ import java.io.Serializable;
 
 /**
  * Created by glaucia on 12/08/14.
- * <p/>
- * Questão com 3 alternativas do tipo imagem
  */
 public class FakeQuestion implements Serializable {
 

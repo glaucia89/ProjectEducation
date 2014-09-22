@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="" version="2.0">
-    <title>Educador</title>
+    <title>Escola</title>
 
     <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/newEducation/assets/css/game.css"/>
@@ -28,7 +28,7 @@
 
     <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-    <jsp:include page="templates/user/list.jsp"/>
+    <jsp:include page="templates/results/view.jsp"/>
 
     <jsp:include page="templates/layout/footer.jsp"/>
 

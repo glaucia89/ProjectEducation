@@ -16,27 +16,27 @@
                 <div class="col-md-12 col-sm-12 pager">
                     <div class="row">
 
-                        <form role="form" id="schoolAdd" method="post" modelAtribute="standartmodel">
+                        <form role="form" id="standartAdd" method="post" modelAtribute="standartmodel">
                             <div class="form-horizontal" role="form">
                                 <label for="hability" class="col-sm-2 control-label">Habilidade</label>
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <select name="hability" class="form-control" id="hability">
-                                        <option value="${question.hability}">${question.hability.valor}</option>
+                                        <option value="${standart.hability}">${standart.hability.valor}</option>
                                         <c:forEach var="item" items="${habilities}">
                                             <option value="${item}">${item.valor}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-                                        <label for="dificulty" class="col-sm-2 control-label">Nível de Dificuldade</label>
+                                        <label for="difficulty" class="col-sm-2 control-label">Nível de Dificuldade</label>
                                         <div class="col-sm-10" style="padding-bottom: 25px;">
-                                            <input name="dificulty" type="number" class="form-control" id="dificulty" min="0" max="10"
-                                                   placeholder="Entre que o nível da dificuldade" value="${question.dificulty}">
+                                            <input name="difficulty" type="number" class="form-control" id="difficulty" min="0" max="10"
+                                                   placeholder="Entre que o nível da dificuldade" value="${standart.difficulty}">
                                         </div>
+                                                   <input type="hidden" name="idPlayer" value="${standart.idPlayer}" />
 
                             <button type="submit" class="btn btn-info">Salvar</button>
-
-                            <a class="btn btn-info" href="${pageContext.request.contextPath}/standart">Voltar</a>
+                            <a class="btn btn-info" href="${pageContext.request.contextPath}/player">Voltar</a>
                         </form>
                     </div>
                 </div>

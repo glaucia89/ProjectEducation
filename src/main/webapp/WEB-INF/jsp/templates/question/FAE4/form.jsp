@@ -78,7 +78,7 @@
                                     </div>
                                     <label for="responseB" class="col-sm-2 control-label">Texto da alternativa B</label>
                                     <div class="col-sm-4" >
-                                        <input name="textB" type="text" class="form-control" id="responseB"
+                                        <input name="responseB" type="text" class="form-control" id="responseB"
                                                value="${question.responseB}">
                                     </div>
                                     <div class="col-sm-4">
@@ -104,7 +104,7 @@
                                     </div>
                                     <label for="responseC" class="col-sm-2 control-label">Texto da alternativa C</label>
                                     <div class="col-sm-4" >
-                                        <input name="textC" type="text" class="form-control" id="responseC"
+                                        <input name="responseC" type="text" class="form-control" id="responseC"
                                                value="${question.responseC}">
                                     </div>
                                     <div class="col-sm-4">

@@ -27,10 +27,7 @@
                             <tr class="active">
                                 <td>${item.fkUser.nameUser}</td>
                                 <td>
-                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/standart/add${item.id}">Adicionar Questionario</a>
-                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/playerschool/add${item.id}">Adicionar Escola</a>
-                                    <a class="btn btn-warning" href="${pageContext.request.contextPath}/player/edit${item.id}">Editar</a>
-                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/player/delete${item.id}">Deletar</a>
+                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/#${item.id}">Ver</a>
                                 </td>
                             </tr>
                         </c:if>

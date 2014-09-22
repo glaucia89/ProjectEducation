@@ -1,9 +1,15 @@
 package com.fatec.neweducation.controller;
 
+import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.School;
+import com.fatec.neweducation.model.Standart;
+import com.fatec.neweducation.model.dto.FakeStandart;
 import com.fatec.neweducation.model.resources.City;
+import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.model.resources.State;
+import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.SchoolService;
+import com.fatec.neweducation.service.StandartService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,64 +23,53 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by glaucia on 31/07/14.
  */
 @Controller
-@RequestMapping(value = "/school")
+@RequestMapping(value = "/standart")
 public class StandartController {
 
     @Autowired
-    private SchoolService schoolService;
+    private StandartService standartService;
+
+    @Autowired
+    private PlayerService playerService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
-        modelAndView.addObject("title", "Escolas");
-        List<School> list = this.schoolService.findAll();
-        modelAndView.addObject("schools", list);
+        ModelAndView modelAndView = new ModelAndView("homeStandart");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView initAddSchool() {
-        ModelAndView modelAndView = new ModelAndView("formSchool");
-        School school = new School();
-        modelAndView.addObject("title", "Adicionar Escola");
-        modelAndView.addObject("school", school);
-        modelAndView.addObject("cities", City.values());
-        modelAndView.addObject("states", State.values());
+    @RequestMapping(value = "/add{id}", method = RequestMethod.GET)
+    public ModelAndView initAddSchool(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("formStandart");
+        FakeStandart standart = new FakeStandart();
+        standart.setIdPlayer(id);
+        modelAndView.addObject("title", "Adicionar Questionario a aluno");
+        modelAndView.addObject("standart", standart);
+        modelAndView.addObject("habilities", Hability.values());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(@ModelAttribute("schoolmodel") School schoolmodel) {
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
-        this.schoolService.save(schoolmodel);
-        modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
-        return "redirect:/school";
+    @RequestMapping(value = "/add{id}", method = RequestMethod.POST)
+    public String save(@ModelAttribute("standartmodel") FakeStandart standartmodel) {
+        Player player = this.playerService.findById(standartmodel.getIdPlayer());
+        standartmodel.setPlayer(player);
+        this.standartService.save(standartmodel.getStandart());
+        //modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
+        return "redirect:/player";
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
-    public ModelAndView initEditSchool(@PathVariable Integer id) {
-        School school = this.schoolService.findById(id);
-        ModelAndView modelAndView = new ModelAndView("formSchool");
-        modelAndView.addObject("title", "Editar Escola");
-        modelAndView.addObject("school", school);
-        modelAndView.addObject("cities", City.values());
-        modelAndView.addObject("states", State.values());
-        return modelAndView;
+    public String initEditSchool(@PathVariable Integer id) {
+        return "redirect:/player";
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
     public String update(@ModelAttribute School school, @PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
-        this.schoolService.update(school);
-        modelAndView.addObject("messagee", "Escola " + school.getTitle() + " editado com sucesso!");
-        return "redirect:/school";
+        return "redirect:/player";
     }
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     public String delete(@PathVariable Integer id) {
-        this.schoolService.deleteById(id);
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
-        modelAndView.addObject("message", "Escola deletada com sucesso!");
-        return "redirect:/school";
+        return "redirect:/player";
     }
 }

@@ -19,28 +19,28 @@
                     <h4>Questões</h4>
                 </div>
 
-                    <div class="col-xs-6 col-md-3">
-                        <a href="${pageContext.request.contextPath}/school" class="thumbnail" >
-                            <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/escola.jpg" style="width: 200px; height: 200px;"/>
-                        </a>
-                        <h4>Escolas</h4>
-                    </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="${pageContext.request.contextPath}/school" class="thumbnail" >
+                        <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/escola.jpg" style="width: 200px; height: 200px;"/>
+                    </a>
+                    <h4>Escolas</h4>
+                </div>
 
-                        <div class="col-xs-6 col-md-3">
-                            <a href="${pageContext.request.contextPath}/player" class="thumbnail">
-                                <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/users.jpg"  style="width: 200px; height: 200px;">
-                            </a>
+                <div class="col-xs-6 col-md-3">
+                    <a href="${pageContext.request.contextPath}/player" class="thumbnail">
+                        <img class="img-responsive" src="${pageContext.request.contextPath}/assets/img/menu/users.jpg"  style="width: 200px; height: 200px;">
+                    </a>
 
-                            <h4>Usuários</h4>
-                        </div>
+                    <h4>Usuários</h4>
+                </div>
 
-                        <div class="col-xs-6 col-md-3">
-                            <a href="${pageContext.request.contextPath}/game" class="thumbnail">
-                                <img class="img-responsive  " src="${pageContext.request.contextPath}/assets/img/menu/dados.jpg"  style="width: 200px; height: 200px;">
-                            </a>
+                <div class="col-xs-6 col-md-3">
+                    <a href="${pageContext.request.contextPath}/result" class="thumbnail">
+                        <img class="img-responsive  " src="${pageContext.request.contextPath}/assets/img/menu/dados.jpg"  style="width: 200px; height: 200px;">
+                    </a>
 
-                            <h4>Resultados</h4>
-                        </div>
+                    <h4>Resultados</h4>
+                </div>
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@
 
     <jsp:include page="templates/player/list.jsp"/>
 
-<jsp:include page="templates/layout/footer.jsp"/>
+    <jsp:include page="templates/layout/footer.jsp"/>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -7,7 +7,6 @@ import com.fatec.neweducation.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by glaucia on 31/07/14.
@@ -52,7 +51,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByName(String name) {
-        return null;
+        String query = "from " + User.class.getName() + " u where u.loginUser = '" + name + "'";
+        return this.dao.executeQuery(query).get(0);
     }
 
     public boolean isAvailableName(String name) {

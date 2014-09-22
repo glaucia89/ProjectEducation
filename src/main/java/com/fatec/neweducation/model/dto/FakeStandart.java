@@ -21,6 +21,7 @@ public class FakeStandart {
 
     private Standart standart;
 
+    private Integer idPlayer;
     private Integer idStandart;
     private Hability hability;
     private Integer difficulty;
@@ -84,7 +85,7 @@ public class FakeStandart {
         }
 
         if (this.hability != null) {
-            this.standart.setHabitlity(this.getHability());
+            this.standart.setHability(this.getHability());
         }
 
         this.standart.setCreationDate(new Date());
@@ -102,8 +103,8 @@ public class FakeStandart {
             this.setPlayer(standart.getFkPlayer());
         }
 
-        if (standart.getHabitlity() != null) {
-            this.setHability(standart.getHabitlity());
+        if (standart.getHability() != null) {
+            this.setHability(standart.getHability());
         }
 
         if (standart.getId() != null) {
@@ -117,5 +118,14 @@ public class FakeStandart {
         this.standart = standart;
     }
 
+    public Integer getIdPlayer() {
+        return idPlayer;
+    }
 
+    public void setIdPlayer(Integer idPlayer) {
+        this.idPlayer = idPlayer;
+    }
+
+    
+    
 }

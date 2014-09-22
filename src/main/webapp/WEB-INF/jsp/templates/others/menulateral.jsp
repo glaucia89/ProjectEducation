@@ -93,7 +93,7 @@
         </button>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/game">
+                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/result">
                     Resultados</a></li>
         </ul>
     </div>

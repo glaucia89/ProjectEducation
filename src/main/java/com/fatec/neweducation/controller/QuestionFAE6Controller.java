@@ -43,7 +43,7 @@ public class QuestionFAE6Controller {
         ModelAndView modelAndView = new ModelAndView("formQuestionFAE6");
         FakeQuestion question = new FakeQuestion();
         question.setTypeAnswer(TypeAnswer.FAE6);
-        modelAndView.addObject("title", "Adicionar Questão do tipo 5");
+        modelAndView.addObject("title", "Adicionar Questão do tipo 6");
         modelAndView.addObject("question", question);
         modelAndView.addObject("habilities", Hability.values());
         return modelAndView;

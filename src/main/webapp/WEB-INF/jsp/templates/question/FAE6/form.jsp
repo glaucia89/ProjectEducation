@@ -46,7 +46,7 @@
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
                                     <label for="audioA" class="col-sm-2 control-label">Qual o audio da questão </label>
                                     <div class="col-sm-4" >
-                                        <input name="audio" type="text" class="form-control" id="audio"
+                                        <input name="audioA" type="text" class="form-control" id="audioA"
                                                value="${question.audioA}">
                                     </div>
                                 </div>

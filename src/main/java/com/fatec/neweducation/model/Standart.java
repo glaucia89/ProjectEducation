@@ -39,7 +39,7 @@ public class Standart implements Serializable {
 
     @Column(name = "hability")
     @Enumerated(EnumType.STRING)
-    private Hability habitlity;
+    private Hability hability;
 
     @Column(name = "difficulty")
     private Integer difficulty;
@@ -63,12 +63,12 @@ public class Standart implements Serializable {
         this.id = id;
     }
 
-    public Hability getHabitlity() {
-        return habitlity;
+    public Hability getHability() {
+        return hability;
     }
 
-    public void setHabitlity(Hability habitlity) {
-        this.habitlity = habitlity;
+    public void setHability(Hability hability) {
+        this.hability = hability;
     }
 
     public Integer getDifficulty() {
