@@ -29,6 +29,7 @@
                                 <td>
                                     <a class="btn btn-info" href="${pageContext.request.contextPath}/standart/add${item.id}">Adicionar Questionario</a>
                                     <a class="btn btn-info" href="${pageContext.request.contextPath}/playerschool/add${item.id}">Adicionar Escola</a>
+                                    <a class="btn btn-success" href="${pageContext.request.contextPath}/player/view${item.id}">Ver</a>
                                     <a class="btn btn-warning" href="${pageContext.request.contextPath}/player/edit${item.id}">Editar</a>
                                     <a class="btn btn-danger" href="${pageContext.request.contextPath}/player/delete${item.id}">Deletar</a>
                                 </td>

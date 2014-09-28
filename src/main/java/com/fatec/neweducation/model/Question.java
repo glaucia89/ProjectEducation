@@ -42,6 +42,9 @@ public class Question implements java.io.Serializable {
     @Column(name = "difficulty")
     private Integer difficulty;
 
+    @Column(name = "active")
+    private Boolean active;
+
     public Question() {
     }
 
@@ -98,7 +101,13 @@ public class Question implements java.io.Serializable {
         this.difficulty = difficulty;
     }
 
+    public Boolean getActive() {
+        return this.active;
+    }
 
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
 
 

@@ -24,4 +24,6 @@ public interface QuestionService {
 
     public List<Question> findByDifficulty(Integer difficulty);
 
+    public List<Question> findByfindByHabilityAndDifficulty(Hability hability, Integer difficulty);
+
 }

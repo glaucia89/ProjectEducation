@@ -2,15 +2,10 @@ package com.fatec.neweducation.controller;
 
 import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.School;
-import com.fatec.neweducation.model.Standart;
 import com.fatec.neweducation.model.dto.FakeStandart;
-import com.fatec.neweducation.model.resources.City;
 import com.fatec.neweducation.model.resources.Hability;
-import com.fatec.neweducation.model.resources.State;
 import com.fatec.neweducation.service.PlayerService;
-import com.fatec.neweducation.service.SchoolService;
 import com.fatec.neweducation.service.StandartService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

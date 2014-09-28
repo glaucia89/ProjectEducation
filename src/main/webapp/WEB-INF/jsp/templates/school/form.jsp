@@ -22,14 +22,14 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="title" type="text" class="form-control" id="titleforschool"
-                                           placeholder="Digite o titulo da Escola" value="${school.title}">
+                                           placeholder="Digite o titulo da Escola" value="${school.title}" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="cityforschool" class="col-sm-2 control-label">Cidade</label>
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <select name="city" class="form-control" id="cityforschool">
+                                    <select name="city" class="form-control" id="cityforschool" required>
                                         <option value="${school.city}">${school.city}</option>
                                         <c:forEach var="item" items="${cities}">
                                             <option value="${item}">${item.valor}</option>
@@ -41,7 +41,7 @@
                                 <label for="stateforschool" class="col-sm-2 control-label">Estado</label>
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <select name="state" class="form-control" id="stateforschool" >
+                                    <select name="state" class="form-control" id="stateforschool" required>
                                         <option value="${school.state}">${school.state}</option>
                                         <c:forEach var="item" items="${states}">
                                             <option value="${item}">${item.valor}</option>

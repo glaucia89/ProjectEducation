@@ -22,7 +22,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="nameUser" type="text" class="form-control" id="nameuser"
-                                           placeholder="Digite o nome completo" value="${user.nameUser}">
+                                           placeholder="Digite o nome completo" value="${user.nameUser}" required>
                                 </div>
                             </div>
                             <div class="form-horizontal" role="form">
@@ -31,7 +31,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="loginUser" type="text" class="form-control" id="loginuser"
-                                           placeholder="Digite o nome de usuario" value="${user.loginUser}">
+                                           placeholder="Digite o nome de usuario" value="${user.loginUser}" required>
                                 </div>
                             </div>
                             <div class="form-horizontal" role="form">
@@ -40,7 +40,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="password" type="password" class="form-control" id="passworduser"
-                                           placeholder="Digite a senha" value="${user.password}">
+                                           placeholder="Digite a senha" value="${user.password}" required>
                                 </div>
 
                             </div>

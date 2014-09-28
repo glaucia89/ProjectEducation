@@ -32,7 +32,8 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public void delete(Integer id) {
         Question question = this.findById(id);
-        dao.delete(question);
+        question.setActive(Boolean.FALSE);
+        dao.update(question);
     }
 
     @Override
@@ -52,19 +53,25 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Question> findByFAE(TypeQuestion type) {
-        String query = "from " + Question.class.getName() + " q where q.typeQuestion = '" + type + "'";
+        String query = "from " + Question.class.getName() + " q where q.typeQuestion = '" + type + "' and q.active = 1";
         return this.dao.executeQuery(query);
     }
 
     @Override
     public List<Question> findByHability(Hability hability) {
-        String query = "from " + Question.class.getName() + " q where q.hability = '" + hability + "'";
+        String query = "from " + Question.class.getName() + " q where q.hability = '" + hability + "'and q.active = 1";
         return this.dao.executeQuery(query);
     }
 
     @Override
     public List<Question> findByDifficulty(Integer difficulty) {
-        String query = "from " + Question.class.getName() + " q where q.difficulty = " + difficulty;
+        String query = "from " + Question.class.getName() + " q where q.difficulty = " + difficulty + "and q.active = 1";
+        return this.dao.executeQuery(query);
+    }
+
+    @Override
+    public List<Question> findByfindByHabilityAndDifficulty(Hability hability, Integer difficulty) {
+        String query = "from " + Question.class.getName() + " q where q.difficulty = " + difficulty + " and q.hability = '" + hability + "and q.active = 1";
         return this.dao.executeQuery(query);
     }
 }

@@ -114,6 +114,7 @@ public class FakePlayerSchoolGrade {
         if (this.yearClasse != null) {
             this.playerSchoolGrade.setYearClasse(this.getYearClasse());
         }
+        this.playerSchoolGrade.setActive(Boolean.TRUE);
 
         return playerSchoolGrade;
     }

@@ -6,6 +6,17 @@ package com.fatec.neweducation.model.resources;
 public enum State {
 
     SAOPAULO("São Paulo"),
+    BAHIA("Bahia"),
+    MINASGERAIS("Minas Gerais"),
+    ESPIRITOSANTO("Espírito Santo"),
+    TOCANTINS("Tocantins"),
+    RIOGRANDEDOSUL("Rio Grande do Sul"),
+    RIODEJANEIRO("Rio de Janeiro"),
+    ACRE("Acre"),
+    PERNANBUCO("Pernanbuco"),
+    PARAIBA("Paraíba"),
+    RIOGRANDEDONORTE("Rio Grande do Norte"),
+    AMAZONAS("Amazonas"),
     CEARA("Ceará");
 
     private String valor;

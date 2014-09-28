@@ -7,6 +7,18 @@ public enum City {
 
     SAOJOSEDOSCAMPOS("São José dos Campos"),
     PIRACICABA("Piracicaba"),
+    ANGRADOSREIS("Angra dos Reis"),
+    RIOBRANCO("Rio Branco"),
+    MANAUS("Manaus"),
+    SALVADOR("Salvador"),
+    VITORIA("Vitória"),
+    BELOHORIZONTE("Belo Horizonte"),
+    JOAOPESSOA("João Pessoa"),
+    RECIFE("Recife"),
+    RIODEJANEIRO("Rio de Janeiro"),
+    NATAL("Natal"),
+    PORTOALEGRE("Porto Alegre"),
+    PALMAS("Palmas"),
     FORTALEZA("Fortaleza");
 
     private String valor;

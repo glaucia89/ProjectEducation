@@ -1,6 +1,9 @@
 package com.fatec.neweducation.controller;
 
+import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.PlayerSchoolGrade;
+import com.fatec.neweducation.model.School;
+import com.fatec.neweducation.model.dto.FakePlayerSchoolGrade;
 import com.fatec.neweducation.service.PlayerSchoolGradeService;
 import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.SchoolService;
@@ -42,8 +45,8 @@ public class PlayerSchoolGradeController {
     @RequestMapping(value = "/add{id}", method = RequestMethod.GET)
     public ModelAndView initAddPlayerSchool(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("formPlayerSchool");
-        PlayerSchoolGrade psg = new PlayerSchoolGrade();
-        psg.setFkPlayer(this.playerService.findById(id));
+        FakePlayerSchoolGrade psg = new FakePlayerSchoolGrade();
+        psg.setIdPlayerSchoolGrade(id);
         modelAndView.addObject("title", "Adicionar Escola ao Etudante");
         modelAndView.addObject("player", psg);
         modelAndView.addObject("schools", this.schoolService.findAll());
@@ -51,11 +54,15 @@ public class PlayerSchoolGradeController {
     }
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.POST)
-    public String save(@ModelAttribute("modelPlayer") PlayerSchoolGrade modelPlayerSchool, @PathVariable Integer id) {
-
-        modelPlayerSchool.setFkPlayer(this.playerService.findById(id));
+    public String save(@ModelAttribute("modelPlayer") FakePlayerSchoolGrade modelPlayerSchool, @PathVariable Integer id) {
+        School school = this.schoolService.findById(modelPlayerSchool.getIdSchool());
+        Player player = this.playerService.findById(id);
+        modelPlayerSchool.setSchool(school);
+        modelPlayerSchool.setPlayer(player);
+        PlayerSchoolGrade psg = modelPlayerSchool.getPlayerSchoolGrade();
+        psg.setActive(Boolean.TRUE);
+        this.playerSchoolGradeService.save(psg);
         ModelAndView modelAndView = new ModelAndView("homePlayerSchool");
-        this.playerSchoolGradeService.save(modelPlayerSchool);
         //modelAndView.addObject("message", "Escola " + modelPlayerSchool.getFkSchool().getTitle() + " foi adicionada com sucesso ao aluno");
         return "redirect:/player";
     }

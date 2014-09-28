@@ -89,6 +89,7 @@ public class FakeStandart {
         }
 
         this.standart.setCreationDate(new Date());
+        this.standart.setActive(Boolean.TRUE);
 
         return standart;
     }

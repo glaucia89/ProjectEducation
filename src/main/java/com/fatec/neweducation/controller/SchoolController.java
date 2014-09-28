@@ -46,6 +46,7 @@ public class SchoolController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String save(@ModelAttribute("schoolmodel") School schoolmodel) {
         ModelAndView modelAndView = new ModelAndView("homeSchool");
+        schoolmodel.setActive(Boolean.TRUE);
         this.schoolService.save(schoolmodel);
         modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
         return "redirect:/school";

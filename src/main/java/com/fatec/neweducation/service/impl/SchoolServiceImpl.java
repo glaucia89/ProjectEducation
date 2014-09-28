@@ -28,7 +28,8 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public void delete(School school) {
-        dao.delete(school);
+        school.setActive(Boolean.FALSE);
+        dao.update(school);
     }
 
     @Override
@@ -43,12 +44,14 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public List<School> findAll() {
-        return dao.findAll();
+        String query = "from " + School.class.getName() + " s where s.active = 1";
+        return this.dao.executeQuery(query);
     }
 
     @Override
     public void deleteById(Integer id) {
         School school = dao.getById(id);
-        dao.delete(school);
+        school.setActive(Boolean.FALSE);
+        dao.update(school);
     }
 }

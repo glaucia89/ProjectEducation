@@ -23,7 +23,7 @@
 
                                 <label for="hability" class="col-sm-2 control-label">Habilidade</label>
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <select name="hability" class="form-control" id="hability">
+                                    <select name="hability" class="form-control" id="hability" required>
                                         <option value="${question.hability}">${question.hability.valor}</option>
                                         <c:forEach var="item" items="${habilities}">
                                             <option value="${item}">${item.valor}</option>
@@ -33,14 +33,14 @@
 
                                         <label for="difficulty" class="col-sm-2 control-label">Nível de Dificuldade</label>
                                         <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="difficulty" type="number" class="form-control" id="difficulty" min="0" max="10"
-                                           placeholder="Entre que o nível da dificuldade" value="${question.difficulty}">
-                                </div>
+                                            <input name="difficulty" type="number" class="form-control" id="difficulty" min="1" max="10"
+                                                   placeholder="Entre que o nível da dificuldade" value="${question.difficulty}" required>
+                                        </div>
 
                                 <label for="asking" class="col-sm-2 control-label">Pergunta</label>
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <textarea name="asking" class="form-control" id="asking" maxlength="255"
-                                              placeholder="Digite a questão" value="${question.asking}"></textarea>
+                                              placeholder="Digite a questão" value="${question.asking}" required ></textarea>
                                 </div>
 
                                 <div ng-app>
@@ -48,12 +48,12 @@
                                     <label for="pictureA" class="col-sm-2 control-label">Imagem da alternativa A</label>
                                     <div class="col-sm-4" >
                                         <input name="pictureA" type="text" class="form-control" id="pictureA"
-                                               value="${question.pictureA}" ng-model="pictureloadA">
+                                               value="${question.pictureA}" ng-model="pictureloadA" required>
                                     </div>
                                     <label for="responseA" class="col-sm-2 control-label">Texto da alternativa A</label>
                                     <div class="col-sm-4" >
                                         <input name="responseA" type="text" class="form-control" id="responseA"
-                                               value="${question.responseA}">
+                                               value="${question.responseA}" required>
                                     </div>
                                     <div class="col-sm-4">
                                         <label>
@@ -74,12 +74,12 @@
                                     <label for="pictureB" class="col-sm-2 control-label">Imagem da alternativa B</label>
                                     <div class="col-sm-4" >
                                         <input name="pictureB" type="text" class="form-control" id="pictureB"
-                                               value="${question.pictureB}" ng-model="pictureloadB">
+                                               value="${question.pictureB}" ng-model="pictureloadB" required>
                                     </div>
                                     <label for="responseB" class="col-sm-2 control-label">Texto da alternativa B</label>
                                     <div class="col-sm-4" >
                                         <input name="responseB" type="text" class="form-control" id="responseB"
-                                               value="${question.responseB}">
+                                               value="${question.responseB}" required>
                                     </div>
                                     <div class="col-sm-4">
                                         <label>
@@ -100,12 +100,12 @@
                                     <label for="pictureC" class="col-sm-2 control-label">Imagem da alternativa C</label>
                                     <div class="col-sm-4" >
                                         <input name="pictureC" type="text" class="form-control" id="pictureC"
-                                               value="${question.pictureC}" ng-model="pictureloadC">
+                                               value="${question.pictureC}" ng-model="pictureloadC" required>
                                     </div>
                                     <label for="responseC" class="col-sm-2 control-label">Texto da alternativa C</label>
                                     <div class="col-sm-4" >
                                         <input name="responseC" type="text" class="form-control" id="responseC"
-                                               value="${question.responseC}">
+                                               value="${question.responseC}" required >
                                     </div>
                                     <div class="col-sm-4">
                                         <label>

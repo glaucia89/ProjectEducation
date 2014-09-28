@@ -5,8 +5,15 @@ package com.fatec.neweducation.model.resources;
  */
 public enum Hability {
 
-    FONETICA("Fonetica"),
-    VERBAL("Verbal");
+    ALITERACAO("Aliteração"),
+    RIMA("Rima"),
+    SEGMENTACAOSILABICA("Segmentação Silábica"),
+    DISCRIMINACAOFONEMICA("Discriminação Fonêmica"),
+    MEMORIAFONOLOGICA("Memória Fonológica"),
+    REPETICAODEPSEUDOPALAVRAS("Repetição de Pseudopalavras"),
+    COPIADEERITMO("Cópia de Ritmo"),
+    MEMORIAVISUAL("Memória Visual"),
+    COPIADEFORMAS("Cópia de Formas");
 
     private String valor;
 

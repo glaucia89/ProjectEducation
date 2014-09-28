@@ -20,7 +20,7 @@
                             <div class="form-horizontal" role="form">
                                 <label for="hability" class="col-sm-2 control-label">Habilidade</label>
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <select name="hability" class="form-control" id="hability">
+                                    <select name="hability" class="form-control" id="hability" required>
                                         <option value="${standart.hability}">${standart.hability.valor}</option>
                                         <c:forEach var="item" items="${habilities}">
                                             <option value="${item}">${item.valor}</option>
@@ -30,8 +30,8 @@
                             </div>
                                         <label for="difficulty" class="col-sm-2 control-label">Nível de Dificuldade</label>
                                         <div class="col-sm-10" style="padding-bottom: 25px;">
-                                            <input name="difficulty" type="number" class="form-control" id="difficulty" min="0" max="10"
-                                                   placeholder="Entre que o nível da dificuldade" value="${standart.difficulty}">
+                                            <input name="difficulty" type="number" class="form-control" id="difficulty" min="1" max="10"
+                                                   placeholder="Entre que o nível da dificuldade" value="${standart.difficulty}" required>
                                         </div>
                                                    <input type="hidden" name="idPlayer" value="${standart.idPlayer}" />
 

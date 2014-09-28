@@ -1,12 +1,12 @@
 package com.fatec.neweducation.controller;
 
 import com.fatec.neweducation.model.Player;
-import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.dto.FakeUserPlayer;
 import com.fatec.neweducation.model.resources.Gender;
-import com.fatec.neweducation.model.resources.TypeUser;
 import com.fatec.neweducation.service.PlayerSchoolGradeService;
 import com.fatec.neweducation.service.PlayerService;
+import com.fatec.neweducation.service.SchoolService;
+import com.fatec.neweducation.service.StandartService;
 import com.fatec.neweducation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +32,12 @@ public class PlayerController {
 
     @Autowired
     private PlayerSchoolGradeService playerSchoolGradeService;
+
+    @Autowired
+    private SchoolService schoolService;
+
+    @Autowired
+    private StandartService standartService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
@@ -86,4 +92,19 @@ public class PlayerController {
         this.playerService.delete(player.getId());
         return "redirect:/player";
     }
+
+    @RequestMapping(value = "/view{id}", method = RequestMethod.GET)
+    public ModelAndView initView(@PathVariable Integer id) {
+        Player player = this.playerService.findById(id);
+        FakeUserPlayer psg = new FakeUserPlayer();
+        psg.setUser(player.getFkUser());
+        psg.setPlayer(player);
+        psg.setListSchool(this.playerSchoolGradeService.findByPlayer(player));
+        psg.setListStandart(this.standartService.findByPlayer(player));
+        ModelAndView modelAndView = new ModelAndView("viewPlayer");
+        modelAndView.addObject("title", "Visualizar Estudante");
+        modelAndView.addObject("player", psg);
+        return modelAndView;
+    }
+
 }

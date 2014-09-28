@@ -36,8 +36,11 @@
                 <li><a href="${pageContext.request.contextPath}/about">Sobre</a></li>
                 <li><a href="${pageContext.request.contextPath}/developer">Desevolvedor</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active" ><a class="btn btn-success btn-sm" style="background-color: #00E604" href="${pageContext.request.contextPath}/">Sair</a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="${pageContext.request.contextPath}/">
+                        <button type="button" class="btn btn-success">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </button></a></li>
             </ul>
         </div>
     </div>

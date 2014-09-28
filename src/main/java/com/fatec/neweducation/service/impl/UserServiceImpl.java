@@ -30,7 +30,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(Integer id) {
         User user = this.findById(id);
-        dao.delete(user);
+        user.setActive(Boolean.FALSE);
+        dao.update(user);
     }
 
     @Override
@@ -46,26 +47,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return dao.findAll();
+        String query = "from " + User.class.getName() + " u where u.active = 1";
+        return this.dao.executeQuery(query);
     }
 
     @Override
     public User findByName(String name) {
         String query = "from " + User.class.getName() + " u where u.loginUser = '" + name + "'";
-        return this.dao.executeQuery(query).get(0);
+        List<User> list = this.dao.executeQuery(query);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        }
+        return null;
     }
 
     public boolean isAvailableName(String name) {
         User userFind = this.findByName(name);
-        if (userFind != null) {
-            return false;
-        }
-        return true;
+        return userFind == null;
     }
 
     @Override
     public List<User> findByType(TypeUser type) {
-        String query = "from " + User.class.getName() + " u where u.typeUser = '" + type + "'";
+        String query = "from " + User.class.getName() + " u where u.typeUser = '" + type.getValor() + "' and u.active = 1";
         return this.dao.executeQuery(query);
     }
 }

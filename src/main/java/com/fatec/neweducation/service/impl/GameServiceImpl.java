@@ -3,6 +3,7 @@ package com.fatec.neweducation.service.impl;
 import com.fatec.neweducation.dao.GameDAO;
 import com.fatec.neweducation.model.Game;
 import com.fatec.neweducation.model.User;
+import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.service.GameService;
 import java.util.Date;
 import java.util.List;
@@ -54,5 +55,17 @@ public class GameServiceImpl implements GameService {
     @Override
     public Game findById(Integer id) {
         return dao.getById(id);
+    }
+
+    @Override
+    public List<Game> findByUserAndHability(User user, Hability hability) {
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId();
+        return this.dao.executeQuery(query);
+    }
+
+    @Override
+    public List<Game> findByUserAndHabilityIsCorrect(User user, Hability hability) {
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId() + "and g.isCorrectAnswer = 1";
+        return this.dao.executeQuery(query);
     }
 }

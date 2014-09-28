@@ -8,6 +8,7 @@ package com.fatec.neweducation.model.dto;
 
 import com.fatec.neweducation.model.Answer;
 import com.fatec.neweducation.model.Game;
+import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.PlayerSchoolGrade;
 import com.fatec.neweducation.model.Question;
 import com.fatec.neweducation.model.Standart;
@@ -33,6 +34,7 @@ public class FakeGame {
     private Game game;
 
     private Boolean correctResponse;
+
 
     public FakeGame() {
         this.game = new Game();

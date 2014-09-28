@@ -39,7 +39,10 @@ public class User implements Serializable {
     private String loginUser;
 
     @Column(name = "password")
-     private String password;
+    private String password;
+
+    @Column(name = "active")
+    private Boolean active;
 
     public User() {
     }
@@ -96,8 +99,13 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public Boolean getActive() {
+        return this.active;
+    }
 
-
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
 }
 

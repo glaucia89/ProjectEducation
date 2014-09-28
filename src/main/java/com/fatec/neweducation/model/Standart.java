@@ -52,6 +52,9 @@ public class Standart implements Serializable {
     @JoinColumn(name = "fk_player")
     private Player fkPlayer;
 
+    @Column(name = "active")
+    private Boolean active;
+
     public Standart() {
     }
 
@@ -94,5 +97,14 @@ public class Standart implements Serializable {
     public void setFkPlayer(Player fkPlayer) {
         this.fkPlayer = fkPlayer;
     }
+
+    public Boolean isActive() {
+        return this.active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
 
 }

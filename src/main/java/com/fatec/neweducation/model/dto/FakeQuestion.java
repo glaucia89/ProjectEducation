@@ -81,6 +81,7 @@ public class FakeQuestion implements Serializable {
         if (typeQuestion != null) {
             question.setTypeQuestion(this.getTypeQuestion());
         }
+        this.question.setActive(Boolean.TRUE);
 
         return question;
     }

@@ -24,7 +24,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="name" type="text" class="form-control" id="namestudent"
-                                           placeholder="Digite aqui o nome" value="${player.name}">
+                                           placeholder="Digite aqui o nome" value="${player.name}" required>
                                 </div>
                             </div>
                             <div class="form-horizontal" role="form">
@@ -32,7 +32,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="login" type="text" class="form-control" id="loginstudent"
-                                           placeholder="Digite aqui o login" value="${player.login}">
+                                           placeholder="Digite aqui o login" value="${player.login}" required>
                                 </div>
                             </div>
 
@@ -41,7 +41,7 @@
 
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <input name="password" type="password" class="form-control" id="passwordstudent"
-                                           placeholder="Digite aqui a senha" value="${player.password}">
+                                           placeholder="Digite aqui a senha" value="${player.password}" required>
                                 </div>
                             </div>
                                 <div class="form-horizontal" id="datetimepicker">
@@ -64,32 +64,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <c:if test="${!empty player.listSchool}">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr class="success">
-                                                <td>Escola</td>
-                                                <td>Classe</td>
-                                                <td>Ano</td>
-                                                <td>Ação</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="item" items="${player.listSchool}" >
-                                                <tr class="active">
-                                                    <td>${item.school.title}</td>
-                                                    <td>${item.classe}</td>
-                                                    <td>${item.yearClasse}</td>
-                                                    <td>
-                                                        <a class="btn btn-warning" href="${pageContext.request.contextPath}/player/edit${item.id}">Editar</a>
-                                                        <a class="btn btn-danger" href="${pageContext.request.contextPath}/player/delete${item.id}">Deletar</a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </c:if>
-
+                                    
                                         <button type="submit" class="btn btn-info">Salvar</button>
                                         <a class="btn btn-info" href="${pageContext.request.contextPath}/player">Voltar</a>
                         </form>

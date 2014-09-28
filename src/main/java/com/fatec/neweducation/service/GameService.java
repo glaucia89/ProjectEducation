@@ -3,6 +3,7 @@ package com.fatec.neweducation.service;
 
 import com.fatec.neweducation.model.Game;
 import com.fatec.neweducation.model.User;
+import com.fatec.neweducation.model.resources.Hability;
 import java.util.List;
 
 /**
@@ -21,5 +22,9 @@ public interface GameService {
     public List<Game> findAll();
 
     public List<Game> findByUser(User user);
+
+    public List<Game> findByUserAndHability(User user, Hability hability);
+
+    public List<Game> findByUserAndHabilityIsCorrect(User user, Hability hability);
 
 }

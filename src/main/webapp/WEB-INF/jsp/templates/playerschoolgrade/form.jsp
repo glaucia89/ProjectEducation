@@ -20,14 +20,27 @@
                         <form role="form" id="playerSchoolAdd" method="post" modelAtribute="modelPlayerSchool">
                             <div class="form-horizontal" role="form">
 
-
                                 <div class="form-horizontal" role="form">
+                                    <label for="school" class="col-sm-2 control-label">Escola</label>
+
+                                    <div class="col-sm-10" style="padding-bottom: 25px;">
+                                        <select name="idSchool" class="form-control" id="school" >
+                                            <option value="${player.school.id}">${player.school.title}</option>
+                                            <c:forEach var="item" items="${schools}">
+                                                <option value="${item.id}">${item.title}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                            <div class="form-horizontal" role="form">
 
                                     <label for="yearschool" class="col-sm-2 control-label">Ano</label>
 
                                     <div class="col-sm-10" style="padding-bottom: 25px;">
                                         <input name="yearClasse" type="number" class="form-control" id="yearschool"
-                                               placeholder="Digite aqui o ano" value="${player.yearClasse}">
+                                               placeholder="Digite aqui o ano" value="${player.yearClasse}" required>
                                     </div>
                                 </div>
 
@@ -36,7 +49,7 @@
 
                                     <div class="col-sm-10" style="padding-bottom: 25px;">
                                         <input name="classe" type="number" class="form-control" id="gradeschool"
-                                               placeholder="Digite aqui a classe" value="${player.classe}">
+                                               placeholder="Digite aqui a classe" value="${player.classe}" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-info">Salvar</button>

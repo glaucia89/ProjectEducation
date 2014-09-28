@@ -155,6 +155,7 @@ public class FakeUserPlayer implements Serializable {
             user.setPassword(this.getPassword());
         }
         user.setTypeUser(TypeUser.ESTUDANTE);
+        user.setActive(Boolean.TRUE);
 
         return this.user;
 

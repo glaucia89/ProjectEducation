@@ -41,6 +41,17 @@ public class PlayerSchoolGrade implements java.io.Serializable {
     @JoinColumn(name = "fk_school")
     private School fkSchool;
 
+    @Column(name = "active")
+    private Boolean active;
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
     public PlayerSchoolGrade() {
     }
 

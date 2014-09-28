@@ -39,6 +39,9 @@ public class School implements java.io.Serializable {
     @Enumerated(EnumType.STRING)
     private State state;
 
+    @Column(name = "active")
+    private Boolean active;
+
     public School() {
     }
 
@@ -85,8 +88,13 @@ public class School implements java.io.Serializable {
         this.state = state;
     }
 
+    public Boolean getActive() {
+        return this.active;
+    }
 
-
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
 }
 

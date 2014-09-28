@@ -21,6 +21,14 @@ public class PlayerSchoolGradeServiceImpl implements PlayerSchoolGradeService {
 
     @Override
     public Integer save(PlayerSchoolGrade playerSchoolGrade) {
+        Player player = playerSchoolGrade.getFkPlayer();
+        List<PlayerSchoolGrade> list = this.findByPlayer(player);
+        //Desabilita as escolas antigas
+        for (PlayerSchoolGrade psg : list) {
+            psg.setActive(Boolean.FALSE);
+            dao.update(psg);
+        }
+        //Salva a nova
         Integer id = dao.save(playerSchoolGrade);
         return id;
     }
@@ -34,19 +42,20 @@ public class PlayerSchoolGradeServiceImpl implements PlayerSchoolGradeService {
     @Override
     public void delete(Integer id) {
         PlayerSchoolGrade playerSchoolGrade = this.findById(id);
+        playerSchoolGrade.setActive(Boolean.FALSE);
         dao.update(playerSchoolGrade);
 
     }
 
     @Override
     public List<PlayerSchoolGrade> findAll() {
-        return dao.findAll();
-
+        String query = "from " + PlayerSchoolGrade.class.getName() + " psg where psg.active = 1";
+        return this.dao.executeQuery(query);
     }
 
     @Override
     public List<PlayerSchoolGrade> findByPlayer(Player player) {
-        String query = "from " + PlayerSchoolGrade.class.getName() + " psg where psg.fkPlayer.id = " + player.getId();
+        String query = "from " + PlayerSchoolGrade.class.getName() + " psg where psg.fkPlayer.id = " + player.getId() + "and psg.active = 1";
         return this.dao.executeQuery(query);
     }
 

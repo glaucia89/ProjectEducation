@@ -3,7 +3,6 @@ package com.fatec.neweducation.service.impl;
 import com.fatec.neweducation.dao.StandartDAO;
 import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.Standart;
-import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.service.StandartService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,8 @@ public class StandartServiceImpl implements StandartService {
 
     @Override
     public void delete(Standart standart) {
-        dao.delete(standart);
+        standart.setActive(Boolean.FALSE);
+        dao.update(standart);
     }
 
     @Override
@@ -45,7 +45,8 @@ public class StandartServiceImpl implements StandartService {
 
     @Override
     public List<Standart> findAll() {
-        return dao.findAll();
+        String query = "from " + Standart.class.getName() + " s where s.active = 1";
+        return this.dao.executeQuery(query);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class StandartServiceImpl implements StandartService {
 
     @Override
     public List<Standart> findByPlayer(Player player) {
-        String query = "from " + Standart.class.getName() + " s where s.fkPlayer.id = " + player.getId();
+        String query = "from " + Standart.class.getName() + " s where s.fkPlayer.id = " + player.getId() + "and s.active = 1";
         return this.dao.executeQuery(query);
     }
 }

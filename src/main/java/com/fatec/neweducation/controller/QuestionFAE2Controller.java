@@ -34,7 +34,7 @@ public class QuestionFAE2Controller {
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeQuestionFAE2");
         modelAndView.addObject("title", "Questões do tipo 2");
-        modelAndView.addObject("questions", this.questionService.findByFAE(TypeQuestion.FAE1));
+        modelAndView.addObject("questions", this.questionService.findByFAE(TypeQuestion.FAE2));
         return modelAndView;
     }
 

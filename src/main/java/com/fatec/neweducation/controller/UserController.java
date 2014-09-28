@@ -42,6 +42,7 @@ public class UserController {
     public String save(@ModelAttribute("usermodel") User usermodel) {
         ModelAndView modelAndView = new ModelAndView("homeUser");
         usermodel.setTypeUser(TypeUser.EDUCADOR);
+        usermodel.setActive(Boolean.TRUE);
         this.userService.save(usermodel);
         modelAndView.addObject("message", "Educador " + usermodel.getNameUser() + " foi salvo com sucesso");
         return "redirect:/user";
