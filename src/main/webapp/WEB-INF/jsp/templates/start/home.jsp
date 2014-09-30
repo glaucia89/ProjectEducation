@@ -12,47 +12,18 @@
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
             <h1>${title}</h1>
             <div class="row">
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE1" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number1.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 1</h4>
-                </div>
 
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE2" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number2.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 2</h4>
-                </div>
+                <c:forEach var="item" items="${listGames}" >
+                    <c:if test="${!empty item}">
+                        <div class="col-md-4 placeholder">
+                            <a href="${pageContext.request.contextPath}/game/start${item.id}" class="thumbnail" >
+                                <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/questionFAE.jpg"  style="width: 200px; height: 200px;"/>
+                            </a>
+                            <h4>${item.hability.valor}</h4>
+                        </div>
+                    </c:if>
+                </c:forEach>
 
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE3" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number3.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 3</h4>
-                </div>
-
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE4" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number4.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 4</h4>
-                </div>
-
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE5" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number5.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 5</h4>
-                </div>
-
-                <div class="col-md-4 placeholder">
-                    <a href="${pageContext.request.contextPath}/question/FAE6" class="thumbnail" >
-                        <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/number6.jpg"  style="width: 200px; height: 200px;"/>
-                    </a>
-                    <h4>FAE 6</h4>
-                </div>
             </div>
         </div>
     </div>

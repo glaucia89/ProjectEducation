@@ -24,11 +24,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 </head>
-<body ng-app>
+<body>
 
-    <jsp:include page="templates/layout/headeradmin.jsp"/>
+    <jsp:include page="templates/layout/headeruser.jsp"/>
 
-    <jsp:include page="templates/question/${question.typeQuestion}/game.jsp"/>
+    <jsp:include page="templates/question/${game.question.typeQuestion}/game.jsp"/>
 
     <jsp:include page="templates/layout/footer.jsp"/>
 

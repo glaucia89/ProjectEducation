@@ -10,7 +10,7 @@
 <div class="container-fluid panel-body">
     <div class="row">
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
-            <h1>${title}r</h1>
+            <h1>${title}</h1>
             <div class="row">
                 <div class="col-md-4 placeholder">
                     <a href="${pageContext.request.contextPath}/question/FAE1" class="thumbnail" >

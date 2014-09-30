@@ -10,39 +10,42 @@
 <script src="/newEducation/assets/js/vendor/angularjs/angular.min.js"></script>
 
 <div class="panel-body">
-    <div class="row">
-        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
-            <h1 class="page-header">${title}</h1>
-        </div>
-    </div>
     <div class="row placeholders">
         <div class="col-md-12 col-sm-12 pager">
-            <h3>Está é a questão</h3>
+            <h3>${game.question.asking}</h3>
         </div>
     </div>
-    <div class="row placeholders center-block" style="margin-top: 30px" >
-        <div class="col-md-3 col-md-offset-2" >
-            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/abelha.png"  style="width: 200px; height: 200px;"/>
-            <h3>Texto da imagem</h3>
-            <input id="ckbox1" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox1Validade()" on/>
-        </div><div class="col-md-3" >
-            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/menu/escola.jpg"  style="width: 200px; height: 200px;"/>
-            <h3>Texto da imagem</h3>
-            <input id="ckbox2" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox2Validade()" />
-        </div><div class="col-md-3">
-            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/menu/escola.jpg"  style="width: 200px; height: 200px;"/>
-            <h3>Texto da imagem</h3>
-            <input id="ckbox3" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox3Validade()"/>
+    <form role="form" id="addGame" method="post" modelAtribute="modelgame" >
+        <div ng-app>
+            <div class="row placeholders center-block" style="margin-top: 30px" >
+                <div class="col-md-3 col-md-offset-2" >
+                    <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerA.response}</label>
+                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerA.picture}.png"  style="width: 200px; height: 200px;"/>
+                    <input id="ckbox1" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox1Validade()" ng-model="responseA"/>
+                </div><div class="col-md-3" >
+                    <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerB.response}</label>
+                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerB.picture}.png"  style="width: 200px; height: 200px;"/>
+                    <input id="ckbox2" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox2Validade()" ng-model="responseB" />
+                </div><div class="col-md-3">
+                    <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerC.response}</label>
+                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerC.picture}.png"  style="width: 200px; height: 200px;"/>
+                    <input id="ckbox3" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox3Validade()" ng-model="responseC"/>
+                </div>
+            </div>
+            <input type="hidden" name="responseA" value="{{responseA}}">
+            <input type="hidden" name="responseB" value="{{responseB}}">
+            <input type="hidden" name="responseC" value="{{responseC}}">
         </div>
-    </div>
-    <div class="row placeholders center-block" style="margin-top: 30px">
-        <div class="col-md-3 col-md-offset-2" >
-            <input type="button" class="btn btn-lg btn-danger"  style="width: 200px;" value="SAIR" />
-        </div><div class="col-md-3" >
-            <input type="button" class="btn btn-lg btn-warning" style="width: 200px;" value="PULAR" />
-        </div><div class="col-md-3" >
-            <input type="button" class="btn btn-lg btn-success" style="width: 200px;" value="PROXIMA" />
+        <div class="row placeholders center-block" style="margin-top: 30px">
+            <div class="col-md-3 col-md-offset-2" >
+                <a href="${pageContext.request.contextPath}/game/back" type="button" class="btn btn-lg btn-danger"  style="width: 200px;">SAIR</a>
+            </div><div class="col-md-3" >
+                <a href="${pageContext.request.contextPath}/game/gap" type="button" class="btn btn-lg btn-warning" style="width: 200px">PULAR</a>
+            </div><div class="col-md-3" >
+                <button type="submit" class="btn btn-lg btn-success" style="width: 200px;">PROXIMA</button>
+            </div>
         </div>
-     </div>
+
+    </form>
 </div>
 

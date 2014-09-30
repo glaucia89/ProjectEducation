@@ -1,6 +1,7 @@
 package com.fatec.neweducation.service;
 
 import com.fatec.neweducation.model.Question;
+import com.fatec.neweducation.model.Standart;
 import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.model.resources.TypeQuestion;
 import java.util.List;
@@ -26,4 +27,5 @@ public interface QuestionService {
 
     public List<Question> findByfindByHabilityAndDifficulty(Hability hability, Integer difficulty);
 
+    public List<Question> findByfindByStandart(Standart standart);
 }
