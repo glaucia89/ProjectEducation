@@ -1,13 +1,18 @@
 package com.fatec.neweducation.controller;
 
 import com.fatec.neweducation.model.Player;
+import com.fatec.neweducation.model.PlayerSchoolGrade;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.dto.FakeUserPlayer;
 import com.fatec.neweducation.model.resources.Gender;
+import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.model.resources.TypeUser;
+import com.fatec.neweducation.service.GameService;
 import com.fatec.neweducation.service.PlayerSchoolGradeService;
 import com.fatec.neweducation.service.PlayerService;
+import com.fatec.neweducation.service.StandartService;
 import com.fatec.neweducation.service.UserService;
+import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,6 +36,12 @@ public class ResultController {
     private UserService userService;
 
     @Autowired
+    private StandartService standartService;
+
+    @Autowired
+    private GameService gameService;
+
+    @Autowired
     private PlayerSchoolGradeService playerSchoolGradeService;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -41,10 +52,31 @@ public class ResultController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/ver{id}", method = RequestMethod.GET)
-    public ModelAndView initResults(@PathVariable Integer id) {
+    @RequestMapping(value = "/view{id}", method = RequestMethod.GET)
+    public ModelAndView initView(@PathVariable Integer id) {
+        Player player = this.playerService.findById(id);
+        FakeUserPlayer psg = new FakeUserPlayer();
+        psg.setUser(player.getFkUser());
+        psg.setPlayer(player);
+        psg.setListSchool(this.playerSchoolGradeService.findByPlayer(player));
+        psg.setListStandart(this.standartService.findByPlayer(player));
         ModelAndView modelAndView = new ModelAndView("viewResult");
+        modelAndView.addObject("title", "Visualizar Estudante");
+        modelAndView.addObject("player", psg);
+        this.resultByPlayer(player, modelAndView);
         return modelAndView;
+    }
+
+    public void resultByPlayer(Player player, ModelAndView modelAndView) {
+        for (Hability hab : Hability.values()) {
+            modelAndView.addObject(hab.toString(), hab.getValor());
+            Double value = this.gameService.acertsByPlayerAndHability(player, hab);
+            if (value > 0) {
+                modelAndView.addObject("player_" + hab, value + " %");
+            } else {
+                modelAndView.addObject("player_" + hab, "não possui dados");
+            }
+        }
     }
 
 }

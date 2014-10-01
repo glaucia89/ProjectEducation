@@ -27,7 +27,7 @@
                             <tr class="active">
                                 <td>${item.fkUser.nameUser}</td>
                                 <td>
-                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/#${item.id}">Ver</a>
+                                    <a class="btn btn-info" href="${pageContext.request.contextPath}/result/view${item.id}">Ver</a>
                                 </td>
                             </tr>
                         </c:if>

@@ -44,8 +44,8 @@
                                 </div>
 
                             </div>
-                                           <button type="submit" class="btn btn-default">Submit</button>
-                                           <a class="btn btn-default" href="${pageContext.request.contextPath}/user">Voltar</a>
+                                           <button type="submit" class="btn btn-info">Salvar</button>
+                                           <a class="btn btn-info" href="${pageContext.request.contextPath}/user">Voltar</a>
                         </form>
                     </div>
                 </div>

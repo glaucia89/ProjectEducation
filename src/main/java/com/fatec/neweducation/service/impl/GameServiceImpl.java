@@ -2,6 +2,8 @@ package com.fatec.neweducation.service.impl;
 
 import com.fatec.neweducation.dao.GameDAO;
 import com.fatec.neweducation.model.Game;
+import com.fatec.neweducation.model.Player;
+import com.fatec.neweducation.model.PlayerSchoolGrade;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.service.GameService;
@@ -59,13 +61,37 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public List<Game> findByUserAndHability(User user, Hability hability) {
-        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId();
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId() + " and g.fkQuestionGame.hability = '" + hability + "'";
         return this.dao.executeQuery(query);
     }
 
     @Override
     public List<Game> findByUserAndHabilityIsCorrect(User user, Hability hability) {
-        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId() + "and g.isCorrectAnswer = 1";
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.fkPlayer.fkUser.id = " + user.getId() + " and g.fkQuestionGame.hability = '" + hability + "' and g.isCorrectAnswer = 1";
         return this.dao.executeQuery(query);
+    }
+
+    @Override
+    public List<Game> findBySchoolGradeAndHability(PlayerSchoolGrade psg, Hability hability) {
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.id = " + psg.getId() + " and g.fkQuestionGame.hability = '" + hability + "'";
+        return this.dao.executeQuery(query);
+    }
+
+    @Override
+    public List<Game> findBySchoolGradeAndHabilityIsCorrect(PlayerSchoolGrade psg, Hability hability) {
+        String query = "from " + Game.class.getName() + " g where g.fkPlayerSchoolGrade.id = " + psg.getId() + " and g.fkQuestionGame.hability = '" + hability + "' and g.isCorrectAnswer = 1";
+        return this.dao.executeQuery(query);
+    }
+
+    @Override
+    public Double acertsByPlayerAndHability(Player player, Hability hability) {
+        List<Game> listTotal = this.findByUserAndHability(player.getFkUser(), hability);
+        List<Game> listCorrect = this.findByUserAndHabilityIsCorrect(player.getFkUser(), hability);
+        Integer correct = listCorrect.size();
+        Integer total = listTotal.size();
+        if (0.0 < total) {
+            return (correct.doubleValue() / total.doubleValue()) * 100;
+        }
+        return 0.0;
     }
 }
