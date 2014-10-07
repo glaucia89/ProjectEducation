@@ -8,10 +8,8 @@ import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.model.resources.TypeQuestion;
 import com.fatec.neweducation.service.AnswerService;
 import com.fatec.neweducation.service.QuestionService;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.eclipse.persistence.internal.core.helper.CoreClassConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,7 +87,14 @@ public class QuestionServiceImpl implements QuestionService {
         }
         String query2 = "from " + Question.class.getName() + " q where q.difficulty = " + standart.getDifficulty() + " and q.active = 1";
         List<Question> list2 = this.dao.executeQuery(query2);
-        Collections.shuffle(list2);
-        return list2.subList(0, 5);
+        if (list2.size() >= 5) {
+            Collections.shuffle(list2);
+            return list2.subList(0, 5);
+        }
+        String query3 = "from " + Question.class.getName() + " q where q.active = 1";
+        List<Question> list3 = this.dao.executeQuery(query3);
+        Collections.shuffle(list3);
+        return list3.subList(0, 5);
+
     }
 }

@@ -8,6 +8,7 @@ import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.SchoolService;
 import com.fatec.neweducation.service.StandartService;
 import com.fatec.neweducation.service.UserService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -39,11 +40,19 @@ public class PlayerController {
     @Autowired
     private StandartService standartService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView list() {
+    public ModelAndView list(HttpSession session) {
+        this.getMessageBySession(session);
         ModelAndView modelAndView = new ModelAndView("homePlayer");
         modelAndView.addObject("title", "Estudantes");
         modelAndView.addObject("players", this.playerService.findAll());
+        modelAndView.addObject("messageError", messageError);
+        modelAndView.addObject("messageSuccess", messageSuccess);
+        limparMessage();
         return modelAndView;
     }
 
@@ -60,7 +69,7 @@ public class PlayerController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String save(@ModelAttribute("modelplayer") FakeUserPlayer modelPlayer) {
         this.playerService.save(modelPlayer.getPlayer());
-        //modelAndView.addObject("message", "Estudante " + modelPlayer.getName() + " foi salvo com sucesso");
+        this.messageSuccess = "Estudante " + modelPlayer.getName() + " foi salvo com sucesso";
         return "redirect:/player";
     }
 
@@ -70,7 +79,6 @@ public class PlayerController {
         FakeUserPlayer psg = new FakeUserPlayer();
         psg.setUser(player.getFkUser());
         psg.setPlayer(player);
-        //psg.setListSchool(this.playerSchoolGradeService.findByPlayer(player));
         ModelAndView modelAndView = new ModelAndView("formPlayer");
         modelAndView.addObject("title", "Editar Estudante");
         modelAndView.addObject("player", psg);
@@ -82,7 +90,7 @@ public class PlayerController {
     public String update(@ModelAttribute FakeUserPlayer modelFakePlayer, @PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("homePlayer");
         this.playerService.update(modelFakePlayer.getPlayer());
-        modelAndView.addObject("message", "Estudante " + modelFakePlayer.getName() + " editado com sucesso!");
+        this.messageSuccess = "Estudante " + modelFakePlayer.getName() + " editado com sucesso !";
         return "redirect:/player";
     }
 
@@ -90,6 +98,7 @@ public class PlayerController {
     public String delete(@PathVariable Integer id) {
         Player player = this.playerService.findById(id);
         this.playerService.delete(player.getId());
+        this.messageSuccess = "Estudante removido com sucesso !";
         return "redirect:/player";
     }
 
@@ -105,6 +114,22 @@ public class PlayerController {
         modelAndView.addObject("title", "Visualizar Estudante");
         modelAndView.addObject("player", psg);
         return modelAndView;
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
+    }
+
+    private void getMessageBySession(HttpSession session) {
+        if (session.getAttribute("sessionMessageError") != "") {
+            this.messageError = (String) session.getAttribute("sessionMessageError");
+            session.removeAttribute("sessionMessageError");
+        }
+        if (session.getAttribute("sessionMessageSuccess") != "") {
+            this.messageSuccess = (String) session.getAttribute("sessionMessageSuccess");
+            session.removeAttribute("sessionMessageSuccess");
+        }
     }
 
 }

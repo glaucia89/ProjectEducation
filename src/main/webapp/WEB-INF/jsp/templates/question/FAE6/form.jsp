@@ -44,10 +44,18 @@
                             </div>
                             <div ng-app>
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
-                                    <label for="audioA" class="col-sm-2 control-label">Qual o audio da questão </label>
-                                    <div class="col-sm-4" >
-                                        <input name="audioA" type="text" class="form-control" id="audioA"
-                                               value="${question.audioA}" required>
+                                    <label for="textaudioA" class="col-sm-2 control-label">Qual o audio da questão</label>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <input name="audioA" type="text" class="form-control" id="textaudioA"
+                                                   value="${question.audioA}" required>
+                                            <span class="input-group-btn">
+                                                <button onclick="playAudioA()" class="btn btn-default">Tocar</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" style="display: none">
+                                        <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/High1.ogg" type="audio/ogg"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="padding-bottom: 25px;">

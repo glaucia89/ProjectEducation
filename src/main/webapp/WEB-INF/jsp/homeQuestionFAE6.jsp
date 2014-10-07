@@ -25,6 +25,7 @@
 
 </head>
 <body>
+    <jsp:include page="templates/others/message.jsp"/>
 
     <jsp:include page="templates/layout/headeradmin.jsp"/>
 
@@ -36,6 +37,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/newEducation/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/newEducation/assets/js/vendor/angularjs/angular.min.js"></script>
 
 </body>
 </html>

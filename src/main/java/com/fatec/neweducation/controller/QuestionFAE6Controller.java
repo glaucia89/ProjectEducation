@@ -30,11 +30,18 @@ public class QuestionFAE6Controller {
     @Autowired
     private AnswerService answerService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeQuestionFAE6");
         modelAndView.addObject("title", "Questões do tipo 6");
         modelAndView.addObject("questions", this.questionService.findByFAE(TypeQuestion.FAE6));
+        modelAndView.addObject("messageError", messageError);
+        modelAndView.addObject("messageSuccess", messageSuccess);
+        limparMessage();
         return modelAndView;
     }
 
@@ -67,37 +74,19 @@ public class QuestionFAE6Controller {
         this.answerService.save(answerA);
         this.answerService.save(answerB);
         this.answerService.save(answerC);
-        modelAndView.addObject("message", "Questão foi salva com sucesso");
+        messageSuccess = "Questão salva com sucesso";
         return "redirect:/question/FAE6";
     }
 
-//    @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
-//    public ModelAndView initEditQuestioin(@PathVariable Integer id) {
-//        ModelAndView modelAndView = new ModelAndView("formQuestionFAE6");
-//        modelAndView.addObject("title", "Editar Questão do tipo 6");
-//        //TODO
-//        return modelAndView;
-//    }
-//
-//    @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
-//    public String update(@ModelAttribute FakeQuestion questionmodel, @PathVariable Long id) {
-//        ModelAndView modelAndView = new ModelAndView("homeQuestionFAE6");
-//        //TODO
-//        return "redirect:/question/FAE6";
-//    }
-
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     public String delete(@PathVariable Integer id) {
-        Question question = this.questionService.findById(id);
-        List<Answer> answers = this.answerService.findByQuestion(question);
-        if (!answers.isEmpty()) {
-            this.answerService.delete(answers.get(0).getId());
-            this.answerService.delete(answers.get(1).getId());
-            this.answerService.delete(answers.get(2).getId());
-        }
         this.questionService.delete(id);
-        ModelAndView modelAndView = new ModelAndView("homeQuestionFAE6");
-        modelAndView.addObject("message", "Questão deletada com sucesso!");
+        messageSuccess = "Questão removida com sucesso";
         return "redirect:/question/FAE6";
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 }

@@ -3,6 +3,7 @@ package com.fatec.neweducation.model;
 
 
 import com.fatec.neweducation.model.resources.Gender;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -45,6 +46,7 @@ public class Player implements java.io.Serializable {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+
     public Player() {
     }
    
@@ -65,6 +67,7 @@ public class Player implements java.io.Serializable {
     public Date getDateOfBirth() {
         return this.dateOfBirth;
     }
+
     
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;

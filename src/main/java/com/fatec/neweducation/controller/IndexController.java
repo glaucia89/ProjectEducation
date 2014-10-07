@@ -19,6 +19,7 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView defaultPage(ModelMap model) {
         ModelAndView modelAndView = new ModelAndView("login");
@@ -29,6 +30,7 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String efetuaLogin(@ModelAttribute("login") User login, HttpSession session) {
+        this.limparMessage(session);
         User user = this.userService.findByName(login.getLoginUser());
         if (user != null) {
             if (login.getPassword().equals(user.getPassword())) {
@@ -40,7 +42,7 @@ public class IndexController {
                 }
             }
         }
-        session.setAttribute("message", "Erro no login !!!");
+        session.setAttribute("messageError", "Erro ao logar! Verifique se o usuario e a senha estão corretos.");
         return "redirect:/";
     }
 
@@ -64,5 +66,9 @@ public class IndexController {
     public String homePagePlayer(ModelMap model, HttpSession session) {
 
         return "/";
+    }
+
+    private void limparMessage(HttpSession session) {
+        session.setAttribute("messageError", "");
     }
 }

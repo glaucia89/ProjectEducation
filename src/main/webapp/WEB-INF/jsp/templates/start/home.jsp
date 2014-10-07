@@ -17,9 +17,9 @@
                     <c:if test="${!empty item}">
                         <div class="col-md-4 placeholder">
                             <a href="${pageContext.request.contextPath}/game/start${item.id}" class="thumbnail" >
-                                <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/menu/questionFAE.jpg"  style="width: 200px; height: 200px;"/>
+                                <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/num/${item.difficulty}.png"  style="width: 200px; height: 200px;"/>
                             </a>
-                            <h4>${item.hability.valor}</h4>
+                                <h4 class="text-center">${item.hability.valor}</h4>
                         </div>
                     </c:if>
                 </c:forEach>

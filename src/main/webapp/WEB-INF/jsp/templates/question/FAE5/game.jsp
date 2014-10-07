@@ -17,9 +17,13 @@
     </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 pager">
-                    <button type="button" class="btn btn-lg btn-info">${game.answerA.audio}
+                    <button type="button" class="btn btn-lg btn-info" onclick="audioA.play();">
                         <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
                     </button>
+
+                    <div style="display: none">
+                        <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/${game.answerA.audio}.ogg" type="audio/ogg"/>
+                    </div>
                 </div>
             </div>
     <form role="form" id="addGame" method="post" modelAtribute="modelgame" >

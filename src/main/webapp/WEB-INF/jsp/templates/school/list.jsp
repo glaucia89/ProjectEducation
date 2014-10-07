@@ -18,9 +18,9 @@
                 <thead>
                     <tr class="success">
                         <td>Titulo</td>
-                        <td>Cidadde</td>
-                        <td>Estado</td>
-                        <td>Ação</td>
+                        <td class="text-center">Cidade</td>
+                        <td class="text-center">Estado</td>
+                        <td class="text-center">Ação</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,11 +28,11 @@
                     <c:if test="${!empty item}">
                         <tr class="active">
                             <td>${item.title}</td>
-                            <td>${item.city.valor}</td>
-                            <td>${item.state.valor}</td>
-                            <td>
+                            <td class="text-center">${item.city.valor}</td>
+                            <td class="text-center">${item.state.valor}</td>
+                            <td class="text-center">
                                 <a class="btn btn-warning" href="${pageContext.request.contextPath}/school/edit${item.id}">Editar</a>
-                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/school/delete${item.id}">Deletar</a>
+                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/school/delete${item.id}">Remover</a>
                             </td>
                         </tr>
                     </c:if>

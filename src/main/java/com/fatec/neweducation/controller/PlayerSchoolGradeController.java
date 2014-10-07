@@ -7,6 +7,7 @@ import com.fatec.neweducation.model.dto.FakePlayerSchoolGrade;
 import com.fatec.neweducation.service.PlayerSchoolGradeService;
 import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.SchoolService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,10 +33,12 @@ public class PlayerSchoolGradeController {
     @Autowired
     private PlayerSchoolGradeService playerSchoolGradeService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
-        //TO DO
-        //Listar todos os alunos com a açao de adicionar escola
         ModelAndView modelAndView = new ModelAndView("homePlayer");
         modelAndView.addObject("title", "Estudantes");
         modelAndView.addObject("players", this.playerService.findAll());
@@ -44,17 +47,18 @@ public class PlayerSchoolGradeController {
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.GET)
     public ModelAndView initAddPlayerSchool(@PathVariable Integer id) {
+        this.limparMessage();
         ModelAndView modelAndView = new ModelAndView("formPlayerSchool");
         FakePlayerSchoolGrade psg = new FakePlayerSchoolGrade();
         psg.setIdPlayerSchoolGrade(id);
-        modelAndView.addObject("title", "Adicionar Escola ao Etudante");
+        modelAndView.addObject("title", "Adicionar Escola ao Estudante");
         modelAndView.addObject("player", psg);
         modelAndView.addObject("schools", this.schoolService.findAll());
         return modelAndView;
     }
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.POST)
-    public String save(@ModelAttribute("modelPlayer") FakePlayerSchoolGrade modelPlayerSchool, @PathVariable Integer id) {
+    public String save(@ModelAttribute("modelPlayer") FakePlayerSchoolGrade modelPlayerSchool, @PathVariable Integer id, HttpSession session) {
         School school = this.schoolService.findById(modelPlayerSchool.getIdSchool());
         Player player = this.playerService.findById(id);
         modelPlayerSchool.setSchool(school);
@@ -62,13 +66,15 @@ public class PlayerSchoolGradeController {
         PlayerSchoolGrade psg = modelPlayerSchool.getPlayerSchoolGrade();
         psg.setActive(Boolean.TRUE);
         this.playerSchoolGradeService.save(psg);
-        ModelAndView modelAndView = new ModelAndView("homePlayerSchool");
-        //modelAndView.addObject("message", "Escola " + modelPlayerSchool.getFkSchool().getTitle() + " foi adicionada com sucesso ao aluno");
+        this.messageSuccess = "Escola " + modelPlayerSchool.getSchool().getTitle() + " foi adicionada com sucesso ao aluno";
+        session.setAttribute("sessionMessageSucess", messageSuccess);
+        this.limparMessage();
         return "redirect:/player";
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
     public ModelAndView initEditPlayer(@PathVariable Integer id) {
+        this.limparMessage();
         PlayerSchoolGrade playerSchool = this.playerSchoolGradeService.findById(id);
         ModelAndView modelAndView = new ModelAndView("formPlayer");
         modelAndView.addObject("title", "Editar Estudante");
@@ -78,18 +84,25 @@ public class PlayerSchoolGradeController {
     }
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
-    public String update(@ModelAttribute PlayerSchoolGrade playerSchool, @PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("homePlayerSchool");
+    public String update(@ModelAttribute PlayerSchoolGrade playerSchool, @PathVariable Long id, HttpSession session) {
         this.playerSchoolGradeService.update(playerSchool);
-        modelAndView.addObject("message", "Escola " + playerSchool.getFkSchool().getTitle() + " editada com sucesso!");
+        this.messageSuccess = "Escola " + playerSchool.getFkSchool().getTitle() + " editada com sucesso!";
+        session.setAttribute("sessionMessageSucess", messageSuccess);
+        this.limparMessage();
         return "redirect:/player";
     }
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id, HttpSession session) {
         this.playerSchoolGradeService.delete(id);
-        ModelAndView modelAndView = new ModelAndView("homePlayerSchool");
-        modelAndView.addObject("message", "Escola deletada com sucesso!");
+        this.messageSuccess = "Escola removida com sucesso!";
+        session.setAttribute("sessionMessageSucess", messageSuccess);
+        this.limparMessage();
         return "redirect:/player";
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 }

@@ -23,12 +23,19 @@ public class SchoolController {
     @Autowired
     private SchoolService schoolService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeSchool");
         modelAndView.addObject("title", "Escolas");
         List<School> list = this.schoolService.findAll();
         modelAndView.addObject("schools", list);
+        modelAndView.addObject("messageError", messageError);
+        modelAndView.addObject("messageSuccess", messageSuccess);
+        limparMessage();
         return modelAndView;
     }
 
@@ -45,10 +52,9 @@ public class SchoolController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String save(@ModelAttribute("schoolmodel") School schoolmodel) {
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
         schoolmodel.setActive(Boolean.TRUE);
         this.schoolService.save(schoolmodel);
-        modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
+        this.messageSuccess = "Escola " + schoolmodel.getTitle() + " foi salva com sucesso";
         return "redirect:/school";
     }
 
@@ -65,17 +71,20 @@ public class SchoolController {
 
     @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
     public String update(@ModelAttribute School school, @PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
         this.schoolService.update(school);
-        modelAndView.addObject("messagee", "Escola " + school.getTitle() + " editado com sucesso!");
+        this.messageSuccess = "Escola " + school.getTitle() + " editada com sucesso!";
         return "redirect:/school";
     }
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     public String delete(@PathVariable Integer id) {
         this.schoolService.deleteById(id);
-        ModelAndView modelAndView = new ModelAndView("homeSchool");
-        modelAndView.addObject("message", "Escola deletada com sucesso!");
+        this.messageSuccess = "Escola removida com sucesso!";
         return "redirect:/school";
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 }

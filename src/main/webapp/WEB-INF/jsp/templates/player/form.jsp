@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid panel-body">
     <div class="row">
@@ -44,13 +45,14 @@
                                            placeholder="Digite aqui a senha" value="${player.password}" required>
                                 </div>
                             </div>
-                                <div class="form-horizontal" id="datetimepicker">
+                                <div class="form-horizontal" ng-app>
                                     <label for="datestudent" class="col-sm-2 control-label">Data de Nascimento</label>
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="dateOfBirth" type="datetime" class="form-control" id="datestudent"
-                                           value="${player.dateOfBirth}" placeholder="dd/mm/aaa">
-                                </div>
+                                    <div class="col-sm-10" style="padding-bottom: 25px;">
+                                        <fmt:formatDate value="${player.dateOfBirth}" pattern="dd/MM/yyyy" var="date" />
+                                        <input name="dateOfBirth" type="datetime" class="form-control" id="datestudent"
+                                                   value="${date}"  placeholder="dd/mm/aaa"
+                                        </div>
                                 </div>
                                 <div class="form-horizontal" role="form">
                                     <label for="genderstudent" class="col-sm-2 control-label">Sexo</label>

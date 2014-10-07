@@ -11,14 +11,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <link href="" version="2.0">
     <title>Questão</title>
 
     <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/newEducation/assets/css/game.css"/>
-    <script src="/newEducation/assets/js/controllerQuestion.js"></script>
     <!--<link href="/WEB-INF/pages/boostrap/css/game.css" rel="stylesheet" type="text/css" media="screen" />-->
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

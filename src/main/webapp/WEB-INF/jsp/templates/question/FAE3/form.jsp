@@ -34,13 +34,13 @@
                                         <label for="difficulty" class="col-sm-2 control-label">Nível de Dificuldade</label>
                                         <div class="col-sm-10" style="padding-bottom: 25px;">
                                             <input name="difficulty" type="number" class="form-control" id="dificulty" min="1" max="10"
-                                                   placeholder="Entre que o nível da dificuldade" value="${question.difficulty}" required>
+                                                   placeholder="Entre que o nível da dificuldade" value="${question.difficulty}" >
                                         </div>
 
                                 <label for="asking" class="col-sm-2 control-label">Pergunta</label>
                                 <div class="col-sm-10" style="padding-bottom: 25px;">
                                     <textarea name="asking" class="form-control" id="asking" maxlength="255"
-                                              placeholder="Digite a questão" value="${question.asking}" required></textarea>
+                                              placeholder="Digite a questão" value="${question.asking}" ></textarea>
                                 </div>
 
                                 <div ng-app>
@@ -50,12 +50,20 @@
                                         <input name="pictureA" type="text" class="form-control" id="pictureA"
                                                value="${question.pictureA}" ng-model="pictureloadA" required>
                                     </div>
-                                    <label for="audioA" class="col-sm-2 control-label">Audio da alternativa A</label>
-                                    <div class="col-sm-4" >
-                                        <input name="audioA" type="text" class="form-control" id="audioA"
-                                               value="${question.audioA}" required >
-                                    </div>
-                                    <div class="col-sm-4">
+                                               <label for="textaudioA" class="col-sm-2 control-label">Audio da alternativa A</label>
+                                               <div class="col-sm-4">
+                                                   <div class="input-group">
+                                                       <input name="audioA" type="text" class="form-control" id="textaudioA"
+                                                              value="${question.audioA}" >
+                                                       <span class="input-group-btn">
+                                                           <button onclick="playAudioA()" class="btn btn-default">Tocar</button>
+                                                       </span>
+                                                   </div>
+                                               </div>
+                                               <div class="col-sm-4" style="display: none">
+                                                   <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/High1.ogg" type="audio/ogg"/>
+                                               </div>
+                                               <div class="col-sm-4">
                                         <label>
                                             <input type="hidden" name="correctA" value="{{correctA}}">
                                             <input class="form-control" type="checkbox" id="isCorrectA"
@@ -76,12 +84,20 @@
                                         <input name="pictureB" type="text" class="form-control" id="pictureB"
                                                value="${question.pictureB}" ng-model="pictureloadB" required>
                                     </div>
-                                    <label for="audioB" class="col-sm-2 control-label">Audio da alternativa B</label>
-                                    <div class="col-sm-4" >
-                                        <input name="audioB" type="text" class="form-control" id="audioB"
-                                               value="${question.audioB}" required>
-                                    </div>
-                                    <label>
+                                               <label for="textaudioB" class="col-sm-2 control-label">Audio da alternativa B</label>
+                                               <div class="col-sm-4">
+                                                   <div class="input-group">
+                                                       <input name="audioB" type="text" class="form-control" id="textaudioB"
+                                                             value="${question.audioB}" >
+                                                       <span class="input-group-btn">
+                                                           <button onclick="playAudioB()" class="btn btn-default">Tocar</button>
+                                                       </span>
+                                                   </div>
+                                               </div>
+                                               <div class="col-sm-4" style="display: none">
+                                                   <audio id="audioB" controls src="${pageContext.request.contextPath}/assets/audio/High1.ogg" type="audio/ogg"/>
+                                               </div>
+                                               <label>
                                         <input type="hidden" name="correctB" value="{{correctB}}">
                                         <input class="form-control" type="checkbox" id="isCorrectB"
                                                ng-model="correctB">Marque se está correta

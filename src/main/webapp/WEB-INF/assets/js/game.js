@@ -21,3 +21,28 @@ function checkbox3Validade() {
     $('input#ckbox1').prop('checked', false);
     $('input#ckbox2').prop('checked', false);
 }
+
+function playAudioA() {
+    var inicio = "/newEducation/assets/audio/";
+    var inputAudio = textaudioA.value;
+    audioA.src = inicio + inputAudio + ".ogg";
+    audioA.play();
+
+}
+
+function playAudioB() {
+    var inicio = "/newEducation/assets/audio/";
+    var inputAudio = textaudioB.value;
+    audioB.src = inicio + inputAudio + ".ogg";
+    audioB.play();
+
+}
+
+function playA() {
+    audioA.play();
+}
+
+function playB() {
+    audioB.play();
+}
+

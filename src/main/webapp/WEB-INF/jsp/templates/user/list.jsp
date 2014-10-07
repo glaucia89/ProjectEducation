@@ -18,18 +18,18 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="success">
-                                <td>Name</td>
-                                <td>Ação</td>
+                                <td class="text-center">Name</td>
+                                <td class="text-center">Ação</td>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var="item" items="${users}" >
                                 <c:if test="${!empty item}">
                                     <tr class="active">
-                                        <td>${item.nameUser}</td>
-                                        <td>
+                                        <td class="text-center">${item.nameUser}</td>
+                                        <td class="text-center">
                                             <a class="btn btn-warning" href="${pageContext.request.contextPath}/user/edit${item.id}">Editar</a>
-                                            <a class="btn btn-danger" href="${pageContext.request.contextPath}/user/delete${item.id}">Deletar</a>
+                                            <a class="btn btn-danger" href="${pageContext.request.contextPath}/user/delete${item.id}">Remover</a>
                                         </td>
                                     </tr>
                             </c:if>

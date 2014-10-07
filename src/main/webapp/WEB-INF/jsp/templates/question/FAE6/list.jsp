@@ -17,21 +17,21 @@
             <table class="table table-bordered">
                 <thead>
                 <tr class="success">
-                    <td>Habilidade</td>
-                    <td>Dificuldade</td>
+                    <td class="text-center">Habilidade</td>
+                    <td class="text-center">Dificuldade</td>
                     <td>Pergunta</td>
-                    <td>Ação</td>
+                    <td class="text-center">Ação</td>
                 </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="item" items="${questions}" >
                         <c:if test="${!empty item}">
                             <tr class="active">
-                                <td>${item.hability.valor}</td>
-                                <td>${item.difficulty}</td>
+                                <td class="text-center">${item.hability.valor}</td>
+                                <td class="text-center">${item.difficulty}</td>
                                 <td>${item.asking}</td>
-                                <td>
-                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/questions/FAE6/delete${item.id}">Deletar</a>
+                                <td class="text-center">
+                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/question/FAE6/delete${item.id}">Remover</a>
                                 </td>
                             </tr>
                         </c:if>

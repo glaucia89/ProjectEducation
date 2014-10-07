@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="" version="2.0">
-        <title>Sobre</title>
+        <title>New Education</title>
 
         <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
         <link rel="stylesheet" href="/newEducation/assets/css/game.css"/>
@@ -26,6 +26,8 @@
     </head>
     <body>
 
+        <jsp:include page="templates/others/message.jsp"/>
+
         <jsp:include page="templates/layout/headerLogin.jsp"/>
 
         <jsp:include page="templates/others/signup.jsp"/>
@@ -36,6 +38,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="/newEducation/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+
+        <script src="/newEducation/assets/js/vendor/angularjs/angular.min.js"></script>
 
     </body>
 </html>

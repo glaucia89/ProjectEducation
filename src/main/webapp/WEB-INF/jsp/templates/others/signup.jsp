@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="container-fluid panel-body">
     <div class="row">
-        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
+        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 main">
             <h1>Efetue o Login</h1>
 
             <div class="row placeholders">

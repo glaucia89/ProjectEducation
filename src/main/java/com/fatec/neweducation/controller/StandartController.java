@@ -2,10 +2,12 @@ package com.fatec.neweducation.controller;
 
 import com.fatec.neweducation.model.Player;
 import com.fatec.neweducation.model.School;
+import com.fatec.neweducation.model.Standart;
 import com.fatec.neweducation.model.dto.FakeStandart;
 import com.fatec.neweducation.model.resources.Hability;
 import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.StandartService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,6 +29,10 @@ public class StandartController {
     @Autowired
     private PlayerService playerService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeStandart");
@@ -35,6 +41,7 @@ public class StandartController {
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.GET)
     public ModelAndView initAddSchool(@PathVariable Integer id) {
+        this.limparMessage();
         ModelAndView modelAndView = new ModelAndView("formStandart");
         FakeStandart standart = new FakeStandart();
         standart.setIdPlayer(id);
@@ -45,11 +52,14 @@ public class StandartController {
     }
 
     @RequestMapping(value = "/add{id}", method = RequestMethod.POST)
-    public String save(@ModelAttribute("standartmodel") FakeStandart standartmodel) {
+    public String save(@ModelAttribute("standartmodel") FakeStandart standartmodel, HttpSession session) {
+        this.limparMessage();
         Player player = this.playerService.findById(standartmodel.getIdPlayer());
         standartmodel.setPlayer(player);
-        this.standartService.save(standartmodel.getStandart());
-        //modelAndView.addObject("message", "Escola " + schoolmodel.getTitle() + " foi salva com sucesso");
+        Standart standart = standartmodel.getStandart();
+        this.standartService.save(standart);
+        this.messageSuccess = "Questionário: " + standart.getHability().getValor() + " nível : " + standart.getDifficulty() + " foi removido com sucesso!";
+        session.setAttribute("sessionMessageSucess", messageSuccess);
         return "redirect:/player";
     }
 
@@ -64,7 +74,17 @@ public class StandartController {
     }
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id, HttpSession session) {
+        this.limparMessage();
+        Standart standart = this.standartService.findById(id);
+        this.messageSuccess = "Questionário: " + standart.getHability().getValor() + " nível : " + standart.getDifficulty() + " foi removido com sucesso!";
+        this.standartService.delete(standart);
+        session.setAttribute("sessionMessageSucess", messageSuccess);
         return "redirect:/player";
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 }

@@ -42,16 +42,21 @@
                                 <textarea  name="asking" class="form-control" id="asking" maxlength="255"
                                            placeholder="Digite a questão" value="${question.asking}" required></textarea>
                             </div>
+
                             <div ng-app>
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
-                                <label for="audioA" class="col-sm-2 control-label">Qual o audio da questão </label>
-                                <div class="col-sm-4" >
-                                    <input name="audioA" type="text" class="form-control" id="audioA"
-                                           value="${question.audioA}" ng-model="audioload"required>
-                                </div>
-                                <div class="col-sm-4" >
-                                    <audio controls="" autoplay="" name="media"><source src="${pageContext.request.contextPath}/assets/audio/Voz010.m4a" type="audio"></audio>
-                                </div>
+                                    <label for="textaudioA" class="col-sm-2 control-label">Qual o audio da questão </label>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <input name="audioA" type="text" class="form-control" id="textaudioA"
+                                                   ng-app=""value="${question.audioA}" required>
+                                            <span class="input-group-btn">
+                                                <button onclick="playAudioA()" class="btn btn-default">Tocar</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                <div class="col-sm-4" style="display: none">
+                                    <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/High1.ogg" type="audio/ogg"/>
                                 </div>
                                 <div class="col-sm-12" style="padding-bottom: 25px;">
                                 <label for="pictureA" class="col-sm-2 control-label">Imagem da alternativa A</label>
@@ -118,7 +123,7 @@
                             </div>
                                 <button type="submit" class="btn btn-info" >Salvar</button>
                                 <a class="btn btn-info" href="${pageContext.request.contextPath}/question/FAE5">Voltar</a>
-                        </form>
+                                </form>
                     </div>
                 </div>
             </div>

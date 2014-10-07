@@ -78,6 +78,10 @@ public class GameController {
     private String GAME_PLAYER = "gamePlayer";
     private String GAME = "gameQuestionFAE";
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("gamePlayer");
@@ -184,6 +188,11 @@ public class GameController {
             }
         }
         return false;
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 
 }

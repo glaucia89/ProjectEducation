@@ -17,16 +17,16 @@
             <table class="table table-bordered">
                 <thead>
                 <tr class="success">
-                    <td>Nome</td>
-                    <td>Ação</td>
+                    <td class="text-center">Nome</td>
+                    <td class="text-center">Ação</td>
                 </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="item" items="${players}" >
                         <c:if test="${!empty item}">
                             <tr class="active">
-                                <td>${item.fkUser.nameUser}</td>
-                                <td>
+                                <td class="text-center">${item.fkUser.nameUser}</td>
+                                <td class="text-center">
                                     <a class="btn btn-info" href="${pageContext.request.contextPath}/result/view${item.id}">Ver</a>
                                 </td>
                             </tr>

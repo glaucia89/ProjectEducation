@@ -28,15 +28,24 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-3" >
-                        <button  style="width: 200px;" type="button" class="btn btn-lg btn-info">${game.answerA.audio}
+                        <button  style="width: 200px;" type="button" class="btn btn-lg btn-info" onclick="audioA.play();">
                             <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
+
+                            
                         </button>
+                        <div style="display: none">
+                            <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/${game.answerA.audio}.ogg" type="audio/ogg"/>
+                        </div>
                     </div>
                             <div class="col-md-4" >
-                                <button  style="width: 200px;" type="button" class="btn btn-lg btn-info">${game.answerB.audio}
+                                <button  style="width: 200px;" type="button" class="btn btn-lg btn-info" onclick="audioB.play();">
                                     <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
-                        </button>
-                    </div>
+                                    
+                                </button>
+                                <div style="display: none">
+                                    <audio id="audioB" controls src="${pageContext.request.contextPath}/assets/audio/${game.answerB.audio}.ogg" type="audio/ogg"/>
+                                </div>
+                            </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-3" >

@@ -30,11 +30,18 @@ public class QuestionFAE5Controller {
     @Autowired
     private AnswerService answerService;
 
+    private String messageError = "";
+
+    private String messageSuccess = "";
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("homeQuestionFAE5");
         modelAndView.addObject("title", "Questões do tipo 5");
         modelAndView.addObject("questions", this.questionService.findByFAE(TypeQuestion.FAE5));
+        modelAndView.addObject("messageError", messageError);
+        modelAndView.addObject("messageSuccess", messageSuccess);
+        limparMessage();
         return modelAndView;
     }
 
@@ -67,55 +74,19 @@ public class QuestionFAE5Controller {
         this.answerService.save(answerA);
         this.answerService.save(answerB);
         this.answerService.save(answerC);
-        modelAndView.addObject("message", "Questão foi salva com sucesso");
+        messageSuccess = "Questão salva com sucesso";
         return "redirect:/question/FAE5";
     }
 
-//    @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
-//    public ModelAndView initEditQuestioin(@PathVariable Integer id) {
-//        Question question = this.questionService.findById(id);
-//        List<Answer> answers = this.answerService.findByQuestion(question);
-//        FakeQuestion questionmodel = new FakeQuestion();
-//        questionmodel.setQuestion(question);
-//        if (!answers.isEmpty()) {
-//            questionmodel.setAnswerA(answers.get(0));
-//            questionmodel.setAnswerA(answers.get(1));
-//            questionmodel.setAnswerA(answers.get(2));
-//        }
-//        ModelAndView modelAndView = new ModelAndView("formQuestionFAE5");
-//        modelAndView.addObject("title", "Editar Questão do tipo 5");
-//        modelAndView.addObject("question", questionmodel);
-//        modelAndView.addObject("habilities", Hability.values());
-//        return modelAndView;
-//    }
-//
-//    @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
-//    public String update(@ModelAttribute FakeQuestion questionmodel, @PathVariable Long id) {
-//        ModelAndView modelAndView = new ModelAndView("homeQuestionFAE5");
-//        Question question = questionmodel.getQuestion();
-//        Answer answerA = questionmodel.getAnswerA();
-//        Answer answerB = questionmodel.getAnswerB();
-//        Answer answerC = questionmodel.getAnswerC();
-//        this.questionService.update(question);
-//        this.answerService.update(answerA);
-//        this.answerService.update(answerB);
-//        this.answerService.update(answerC);
-//        modelAndView.addObject("message", "Questão editada com sucesso!");
-//        return "redirect:/question/FAE5";
-//    }
-
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     public String delete(@PathVariable Integer id) {
-        Question question = this.questionService.findById(id);
-        List<Answer> answers = this.answerService.findByQuestion(question);
-        if (!answers.isEmpty()) {
-            this.answerService.delete(answers.get(0).getId());
-            this.answerService.delete(answers.get(1).getId());
-            this.answerService.delete(answers.get(2).getId());
-        }
         this.questionService.delete(id);
-        ModelAndView modelAndView = new ModelAndView("homeQuestionFAE5");
-        modelAndView.addObject("message", "Questão deletada com sucesso!");
+        messageSuccess = "Questão removida com sucesso";
         return "redirect:/question/FAE5";
+    }
+
+    private void limparMessage() {
+        this.messageError = "";
+        this.messageSuccess = "";
     }
 }
