@@ -10,7 +10,7 @@
 <div class="container-fluid panel-body">
     <div class="row">
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
-            <h1>Sobre</h1>
+            <h1>Dystool</h1>
         </div>
     </div>
 </div>

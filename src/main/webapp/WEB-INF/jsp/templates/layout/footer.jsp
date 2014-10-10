@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div class="footer navbar-fixed-bottom">
+<div class="footer navbar-fixed-bottom" style="background-color: #141414">
     <div class="container">
-        <p class="text-muted">Roda pe</p>
+        <p class="text-muted text-right">Desenvolvido por Gláucia Araujo</p>
     </div>
 </div>

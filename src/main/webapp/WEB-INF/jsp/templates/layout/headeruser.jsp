@@ -9,7 +9,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" >NewEducation</a>
+            <a class="navbar-brand" >Dystool</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

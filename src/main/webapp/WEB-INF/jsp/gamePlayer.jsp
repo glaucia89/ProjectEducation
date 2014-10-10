@@ -14,10 +14,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="" version="2.0">
-        <title>Game</title>
+        <title>Dystool</title>
 
-        <link rel="stylesheet" href="/newEducation/assets/css/vendor/bootstrap/bootstrap.min.css"/>
-        <link rel="stylesheet" href="/newEducation/assets/css/game.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor/bootstrap/bootstrap.min.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/game.css"/>
         <!--<link href="/WEB-INF/pages/boostrap/css/game.css" rel="stylesheet" type="text/css" media="screen" />-->
 
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="/newEducation/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 
     </body>
 </html>

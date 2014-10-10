@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="/newEducation/assets/js/vendor/angularjs/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/vendor/angularjs/angular.min.js"></script>
 
 <div class="container-fluid panel-body">
     <div class="row">

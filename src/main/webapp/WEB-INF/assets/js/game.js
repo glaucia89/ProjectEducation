@@ -23,7 +23,7 @@ function checkbox3Validade() {
 }
 
 function playAudioA() {
-    var inicio = "/newEducation/assets/audio/";
+    var inicio = "/dystool/assets/audio/";
     var inputAudio = textaudioA.value;
     audioA.src = inicio + inputAudio + ".ogg";
     audioA.play();
@@ -31,7 +31,7 @@ function playAudioA() {
 }
 
 function playAudioB() {
-    var inicio = "/newEducation/assets/audio/";
+    var inicio = "/dystool/assets/audio/";
     var inputAudio = textaudioB.value;
     audioB.src = inicio + inputAudio + ".ogg";
     audioB.play();

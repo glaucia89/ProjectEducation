@@ -11,11 +11,11 @@
     <div class="row">
         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 main">
             <h1>${title}</h1>
-            <div class="row">
-
+            <p><h4>Escolha e click em um dos jogos para começar!</h4></p><br/>
+        <div class="row">
                 <c:forEach var="item" items="${listGames}" >
                     <c:if test="${!empty item}">
-                        <div class="col-md-4 placeholder">
+                        <div class="col-md-4 col-xs-4 placeholder">
                             <a href="${pageContext.request.contextPath}/game/start${item.id}" class="thumbnail" >
                                 <img class="img-responsive tamanhofixo200" src="${pageContext.request.contextPath}/assets/img/num/${item.difficulty}.png"  style="width: 200px; height: 200px;"/>
                             </a>

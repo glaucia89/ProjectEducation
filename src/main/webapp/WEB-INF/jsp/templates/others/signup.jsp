@@ -17,26 +17,30 @@
                     <div class="row">
 
                         <form role="form" id="login" method="post" modelAtribute="login">
-                            <div class="form-horizontal" role="form">
+                            <div class="row">
+                                <div class="form-horizontal" role="form">
 
-                                <label for="loginuser" class="col-sm-2 control-label">Nome de usuario</label>
+                                    <label for="loginuser" class="col-sm-2 col-xs-2 control-label">Usuário</label>
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
-                                    <input name="loginUser" type="text" class="form-control" id="loginuser"
-                                           placeholder="Digite o nome de usuario" value="${user.loginUser}">
-                                </div>
+                                    <div class="col-sm-10 col-xs-8" style="padding-bottom: 25px;">
+                                        <input name="loginUser" type="text" class="form-control" id="loginuser"
+                                               placeholder="Digite o nome de usuário" value="${user.loginUser}">
+                                    </div>
                             </div>
-                            <div class="form-horizontal" role="form">
+                    </div>
+                    <div class="row">
+                        <div class="form-horizontal" role="form">
 
-                                <label for="passworduser" class="col-sm-2 control-label">Senha</label>
+                            <label for="passworduser" class="col-sm-2 col-xs-2 control-label">Senha</label>
 
-                                <div class="col-sm-10" style="padding-bottom: 25px;">
+                                <div class="col-sm-10 col-xs-8" style="padding-bottom: 25px;">
                                     <input name="password" type="password" class="form-control" id="passworduser"
                                            placeholder="Digite a senha" value="${user.password}">
                                 </div>
 
-                            </div>
-                                <button type="submit" class="btn btn-default">Entrar</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Entrar</button>
                         </form>
                     </div>
                 </div>
