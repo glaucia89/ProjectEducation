@@ -28,7 +28,7 @@
 
     <jsp:include page="templates/layout/headeruser.jsp"/>
 
-    <jsp:include page="templates/question/${game.question.typeQuestion}/game.jsp"/>
+    <jsp:include page="templates/start/msg_game.jsp"/>
 
     <jsp:include page="templates/layout/footer.jsp"/>
 

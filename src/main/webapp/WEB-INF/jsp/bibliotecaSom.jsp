@@ -24,11 +24,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 </head>
-<body >
+<body>
 
-    <jsp:include page="templates/layout/headeruser.jsp"/>
+    <jsp:include page="templates/layout/headeradmin.jsp"/>
 
-    <jsp:include page="templates/question/${game.question.typeQuestion}/game.jsp"/>
+    <jsp:include page="templates/others/som.jsp"/>
 
     <jsp:include page="templates/layout/footer.jsp"/>
 
@@ -37,7 +37,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="${pageContext.request.contextPath}/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 
-<script src="${pageContext.request.contextPath}.request.contextPath}/assets/js/vendor/angularjs/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/vendor/angularjs/angular.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/game.js"></script>
 

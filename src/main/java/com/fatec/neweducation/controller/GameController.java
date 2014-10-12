@@ -14,6 +14,7 @@ import com.fatec.neweducation.service.PlayerSchoolGradeService;
 import com.fatec.neweducation.service.PlayerService;
 import com.fatec.neweducation.service.QuestionService;
 import com.fatec.neweducation.service.StandartService;
+import com.fatec.neweducation.util.Resposta;
 import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -74,9 +75,19 @@ public class GameController {
     //Ajuda na contagem de questões para andar com a lista
     private Integer contQuestion;
 
+    //Utils
+    private static Resposta respostaUtils = new Resposta();
+    private static Integer MAX = 5;
+
     //Telas
     private String GAME_PLAYER = "gamePlayer";
     private String GAME = "gameQuestionFAE";
+    private String RESPONSE = "gameQuestionFAEMsg";
+
+    private String respostaTexto;
+    private String resposta;
+    private String imagem;
+    private String url;
 
     private String messageError = "";
 
@@ -84,6 +95,8 @@ public class GameController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list(HttpSession session) {
+        this.limparMessage();
+        this.limparResposta();
         ModelAndView modelAndView = new ModelAndView("gamePlayer");
         this.user = (User) session.getAttribute("user");
         this.player = this.playertService.findByUser(user).get(0);
@@ -99,43 +112,80 @@ public class GameController {
         this.standart = this.standartService.findById(id);
         this.listQuestion = this.questionService.findByfindByStandart(standart);
         cont = 0;
-        return "redirect:/game/play";
+        resposta = "Vamos começar!";
+        respostaTexto = "Responda as questões com atenção.";
+        imagem = "piscadinha";
+        url = "game/play";
+        return "redirect:/game/response";
+    }
+
+    @RequestMapping(value = "/response", method = RequestMethod.GET)
+    public ModelAndView gameResposta() {
+        ModelAndView modelAndView = new ModelAndView(this.RESPONSE);
+        modelAndView.addObject("game", game);
+        modelAndView.addObject("resposta", resposta);
+        modelAndView.addObject("resposta_texto", respostaTexto);
+        modelAndView.addObject("resposta_imagem", imagem);
+        modelAndView.addObject("url", url);
+        return modelAndView;
+
     }
 
     @RequestMapping(value = "/play", method = RequestMethod.GET)
     public ModelAndView game() {
+        if (cont == MAX) {
+            cont = 0;
+            resposta = "Fim de Jogo";
+            respostaTexto = "Você foi muito bem!";
+            imagem = "feliz";
+            url = "game";
+
+            ModelAndView modelAndView = new ModelAndView(this.RESPONSE);
+            modelAndView.addObject("game", game);
+            modelAndView.addObject("resposta", resposta);
+            modelAndView.addObject("resposta_texto", respostaTexto);
+            modelAndView.addObject("resposta_imagem", imagem);
+            modelAndView.addObject("url", url);
+
+            return modelAndView;
+        }
         this.game = this.makeFake(cont);
         ModelAndView modelAndView = new ModelAndView(this.GAME);
-        modelAndView.addObject("game", game);
+        modelAndView.addObject("game", this.game);
         return modelAndView;
     }
 
     @RequestMapping(value = "/play", method = RequestMethod.POST)
     public String gameSave(@ModelAttribute GameResponse modelgame) {
         cont += 1;
-        if (cont <= 4) {
             this.game.setCorrectResponse(this.responseIsCorrect(modelgame, game));
             this.gameService.save(game.getGame());
-            return "redirect:/game/play";
-        }
-        cont = 0;
-        return "redirect:/game";
+            this.makeResposta(this.game.isCorrectResponse());
+            return "redirect:/game/response";
     }
 
     @RequestMapping(value = "/gap", method = RequestMethod.GET)
     public String gameGap() {
         cont += 1;
-        if (cont <= 4) {
+        if (cont < MAX) {
             return "redirect:/game/play";
         }
         cont = 0;
-        return "redirect:/game";
+        resposta = "Fim de Jogo";
+        respostaTexto = "Você foi muito bem!";
+        imagem = "feliz";
+        url = "game";
+        return "redirect:/game/response";
     }
 
     @RequestMapping(value = "/back", method = RequestMethod.GET)
     public String gameBack() {
         cont = 0;
-        return "redirect:/game";
+        resposta = "Fim de Jogo";
+        respostaTexto = "Que pena que não quer jogar mais.";
+        imagem = "confuso";
+        url = "game";
+        return "redirect:/game/response";
     }
 
     /**
@@ -193,6 +243,26 @@ public class GameController {
     private void limparMessage() {
         this.messageError = "";
         this.messageSuccess = "";
+    }
+
+    private void limparResposta() {
+        this.resposta = "";
+        this.respostaTexto = "";
+        this.imagem = "";
+    }
+
+    private void makeResposta(Boolean correct) {
+        if (correct) {
+            this.resposta = "Resposta Certa";
+            this.respostaTexto = respostaUtils.getCerta().get(0);
+            this.imagem = respostaUtils.getEmoticonCertos().get(0);
+            this.url = "game/play";
+        } else {
+            this.resposta = "Resposta Errada";
+            this.respostaTexto = respostaUtils.getErrada().get(0);
+            this.imagem = respostaUtils.getEmoticonErrados().get(0);
+            this.url = "game/play";
+        }
     }
 
 }

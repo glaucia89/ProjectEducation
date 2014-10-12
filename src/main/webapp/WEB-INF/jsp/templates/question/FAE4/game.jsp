@@ -21,19 +21,19 @@
             <div ng-app class="center-block col-md-12 col-sm-12 col-xs-12 centralizado">
                 <div class="row placeholders centralizado" style="margin-top: 30px" >
                     <div class="col-md-4 col-sm-4 col-xs-4 placeholder" >
-                        <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerA.response}</label>
+                        <label style="width: 100%; background-color: #FFFFFF; text-align: center">${game.answerA.response}</label>
 
                         <img class="img-responsive img-rounded centralizado" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerA.picture}.png"  style="background-color: #FFFFFF; width: 200px; height: 200px;"/>
                         <input id="ckbox1" type="checkbox" class="form-control " onclick="checkbox1Validade()" ng-model="responseA"/>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 placeholder" >
-                        <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerB.response}</label>
+                        <label style="width: 100%; background-color: #FFFFFF; text-align: center">${game.answerB.response}</label>
 
                         <img class="img-responsive img-rounded centralizado" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerB.picture}.png"  style="background-color: #FFFFFF;width: 200px; height: 200px;"/>
                         <input id="ckbox2" type="checkbox" class="form-control "  onclick="checkbox2Validade()" ng-model="responseB" />
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 placeholder">
-                        <label style="width: 200px; background-color: #FFFFFF; text-align: center">${game.answerC.response}</label>
+                        <label style="width: 100%; background-color: #FFFFFF; text-align: center">${game.answerC.response}</label>
 
                         <img class="img-responsive img-rounded centralizado" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerC.picture}.png"  style="background-color: #FFFFFF;width: 200px; height: 200px;"/>
                         <input id="ckbox3" type="checkbox" class="form-control"  onclick="checkbox3Validade()" ng-model="responseC"/>

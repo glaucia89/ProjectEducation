@@ -19,20 +19,20 @@
                 <div class="col-md-9 col-sm-9 col-xs-9 centralizado">
                     <div ng-app class="center-block col-md-12 col-sm-12 col-xs-12 centralizado">
                         <div class="row placeholders center-block" style="margin-top: 30px" >
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6 placeholder" >
-                                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerA.picture}.png"  style="width: 200px; height: 200px;"/>
-                                    <button  style="width: 200px;" type="button" class="btn btn-lg btn-info" onclick="audioA.play();">
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 row centralizado">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 placeholder " >
+                                    <img class="img-responsive img-rounded centralizado" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerA.picture}.png"  style="background-color: #FFFFFF; width: 200px; height: 200px;"/>
+                                    <button  style="width: 100%;" type="button" class="btn btn-lg btn-info" onclick="audioA.play();">
                                         <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
                                     </button>
-                                    <input id="ckbox1" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox1Validade()" ng-model="responseA"/>
+                                    <input id="ckbox1" type="checkbox" class="form-control form-horizontal" style="width: 100%;" onclick="checkbox1Validade()" ng-model="responseA"/>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 placeholder" >
-                                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerB.picture}.png"  style="width: 200px; height: 200px;"/>
-                                    <button  style="width: 200px;" type="button" class="btn btn-lg btn-info" onclick="audioB.play();" />
-                                    <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 placeholder " >
+                                            <img class="img-responsive img-rounded centralizado" src="${pageContext.request.contextPath}/assets/img/bancoImg/${game.answerB.picture}.png"  style="background-color: #FFFFFF; width: 200px; height: 200px;"/>
+                                            <button  style="width: 100%;" type="button" class="btn btn-lg btn-info" onclick="audioB.play();" >
+                                                <img style="width: 30px; height: 30px; alignment-adjust: middle" src="${pageContext.request.contextPath}/assets/img/menu/audio.png" />
                                     </button>
-                                    <input id="ckbox2" type="checkbox" class="form-control form-horizontal" style="width: 200px;" onclick="checkbox2Validade()" ng-model="responseB" />                        </div>
+                                    <input id="ckbox2" type="checkbox" class="form-control form-horizontal" style="width: 100%;" onclick="checkbox2Validade()" ng-model="responseB" />                        </div>
                             </div>
                         </div>
                         <div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-        </div>
+                </div>
         <div class="col-md-6 col-sm-12 col-xs-12  col-md-offset-1 centralizado">
             <div class=" col-md-12 col-sm-12 col-xs-12 centralizado" style="margin-top: 50px">
                 <div class="form-group centralizado">

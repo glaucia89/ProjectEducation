@@ -3,6 +3,9 @@ package com.fatec.neweducation.controller;
 import com.fatec.neweducation.model.User;
 import com.fatec.neweducation.model.resources.TypeUser;
 import com.fatec.neweducation.service.UserService;
+import com.fatec.neweducation.util.BibliotecaImagem;
+import com.fatec.neweducation.util.BibliotecaSom;
+import com.fatec.neweducation.util.Habilidade;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,13 +60,13 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public ModelAndView homePage(HttpSession session) {
+    public ModelAndView homePage() {
         ModelAndView modelAndView = new ModelAndView("homeAdmin");
         return modelAndView;
     }
 
     @RequestMapping(value = "/homePlayer", method = RequestMethod.GET)
-    public String homePagePlayer(ModelMap model, HttpSession session) {
+    public String homePagePlayer(ModelMap model) {
 
         return "/";
     }
@@ -71,4 +74,32 @@ public class IndexController {
     private void limparMessage(HttpSession session) {
         session.setAttribute("messageError", "");
     }
+
+    @RequestMapping(value = "/imagem", method = RequestMethod.GET)
+    public ModelAndView bibliotecaImagem() {
+        BibliotecaImagem biblioteca = new BibliotecaImagem();
+        ModelAndView modelAndView = new ModelAndView("bibliotecaImagem");
+        modelAndView.addObject("list", biblioteca.getList());
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/som", method = RequestMethod.GET)
+    public ModelAndView bibliotecaSom() {
+        BibliotecaSom biblioteca = new BibliotecaSom();
+        ModelAndView modelAndView = new ModelAndView("bibliotecaSom");
+        modelAndView.addObject("list", biblioteca.getList());
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/habilidades", method = RequestMethod.GET)
+    public ModelAndView homehabilidades() {
+        Habilidade habilidade = new Habilidade();
+        ModelAndView modelAndView = new ModelAndView("habilidades");
+        modelAndView.addObject("habilidade", habilidade);
+        return modelAndView;
+
+    }
+
 }

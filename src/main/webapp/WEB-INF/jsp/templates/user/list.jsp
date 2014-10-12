@@ -12,8 +12,14 @@
         <div class="col-md-2 col-sm-2" style="position:fixed">
             <jsp:include page="../others/menulateral.jsp"/>
         </div>
-            <div class="col-md-8 col-sm-8 main col-md-offset-2 col-sm-offset-2">
-                <h1 class="page-header">${title}</h1>
+        <div class="col-md-8 col-sm-8 main centralizado">
+            <h1 class="page-header">${title}</h1>
+            <div class=" col-xs-12 row centralizado">
+                <a class="btn btn-success" href="${pageContext.request.contextPath}/question/FAE1/add" style="width: 100%">Adicionar novo questão</a>
+
+            </div>
+
+            <div class=" col-xs-12 row centralizado" style="margin-top: 10px">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
@@ -32,12 +38,14 @@
                                             <a class="btn btn-danger" href="${pageContext.request.contextPath}/user/delete${item.id}">Remover</a>
                                         </td>
                                     </tr>
-                            </c:if>
-                                </c:forEach>
+                                </c:if>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+
     </div>
 </div>
 

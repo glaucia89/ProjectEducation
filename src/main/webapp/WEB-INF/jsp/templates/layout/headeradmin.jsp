@@ -14,6 +14,9 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/home">Inicial</a></li>
+                <li><a href="${pageContext.request.contextPath}/imagem">Biblioteca Imagem</a></li>
+                <li><a href="${pageContext.request.contextPath}/som">Biblioteca Som</a></li>
+                <li><a href="${pageContext.request.contextPath}/habilidades">Habilidades</a></li>
             </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="${pageContext.request.contextPath}/">SAIR</a></li>
