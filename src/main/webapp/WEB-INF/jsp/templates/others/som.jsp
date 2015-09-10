@@ -14,12 +14,15 @@
             <div class="row">
             <c:forEach var="item" items="${list}" >
                 <c:if test="${!empty item}">
-                    <div class="col-md-4 col-xs-4 placeholder centralizado">
+                    <div class="col-md-6 col-xs-6 placeholder centralizado">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <audio id="audio" controls src="${pageContext.request.contextPath}/assets/audio/${item}.ogg" type="audio/ogg"/>
-                        </div>
+                            <div>
+                                <audio id="audioA" controls src="${pageContext.request.contextPath}/assets/audio/${item}.ogg" type="audio/ogg"/>
+                            </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 centralizado">
                                 <h4 class="text-center" >${item}</h4>
+                        </div>
+                            
                         </div>
                     </div>
                     </c:if>

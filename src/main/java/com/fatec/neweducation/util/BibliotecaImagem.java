@@ -139,7 +139,6 @@ public class BibliotecaImagem {
         this.list.add("cachorro");
         this.list.add("galo");
         this.list.add("olho");
-        this.list.add("tea-31734_640");
         this.list.add("cafe");
         this.list.add("garfo");
         this.list.add("onca");
@@ -195,6 +194,60 @@ public class BibliotecaImagem {
         this.list.add("chapeu");
         this.list.add("lampada");
         this.list.add("pe");
+        
+        
+        this.list.add("arara");
+        this.list.add("avestruz");
+        this.list.add("baleia");
+        this.list.add("barco");
+        this.list.add("batom");
+        this.list.add("beringela");
+        this.list.add("bexiga");
+        this.list.add("bolha");
+        this.list.add("bomba");
+        this.list.add("botao");
+        this.list.add("bumerangue");
+        this.list.add("cama");
+        this.list.add("camaleao");
+        this.list.add("camera");
+        this.list.add("caranguejo");
+        this.list.add("carimbo");
+        this.list.add("cisne");
+        this.list.add("dente");
+        this.list.add("diamante");
+        this.list.add("disco");
+        this.list.add("espada");
+        this.list.add("faca");
+        this.list.add("fantasma");
+        this.list.add("ferradura");
+        this.list.add("funil");
+        this.list.add("furadeira");
+        this.list.add("gaita");
+        this.list.add("guitarra");
+        this.list.add("harpa");
+        this.list.add("ima");
+        this.list.add("isqueiro");
+        this.list.add("oculos");
+        this.list.add("panda");
+        this.list.add("pavao");
+        this.list.add("piano");
+        this.list.add("pipoca");
+        this.list.add("pizza");
+        this.list.add("polvo");
+        this.list.add("rinoceronte");
+        this.list.add("sacola");
+        this.list.add("tabua");
+        this.list.add("tatu");
+        this.list.add("teclado");
+        this.list.add("termometro");
+        this.list.add("toalha");
+        this.list.add("tomada");
+        this.list.add("touro");
+        this.list.add("vara");
+        this.list.add("vaso");
+        this.list.add("vela");
+        this.list.add("ventilador");
+        this.list.add("violao");
 
         Collections.sort(list);
     }

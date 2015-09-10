@@ -15,7 +15,7 @@
             <div class="col-md-8 col-sm-8 main centralizado">
                 <h1 class="page-header">${title}</h1>
                 <div class=" col-xs-12 row centralizado">
-                    <a class="btn btn-success" href="${pageContext.request.contextPath}/question/FAE3/add" style="width: 100%">Adicionar novo questão</a>
+                    <a class="btn btn-success" href="${pageContext.request.contextPath}/question/FAE3/add" style="width: 100%">Adicionar nova questão</a>
 
                 </div>
 

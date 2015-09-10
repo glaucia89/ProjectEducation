@@ -78,44 +78,54 @@
                                 <tr class="success">
                                     <td>Habilidate</td>
                                     <td class="text-center">Porcentagem de Acertos</td>
+                                    <td class="text-center">Quantidade Respondida</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="active">
                                     <td>${ALITERACAO}</td>
                                     <td class="text-center" ng-bind >${player_ALITERACAO}</td>
+                                    <td class="text-center" ng-bind >${player_numb_ALITERACAO}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${RIMA}</td>
                                     <td class="text-center" >${player_RIMA}</td>
+                                    <td class="text-center" >${player_numb_RIMA}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${SEGMENTACAOSILABICA}</td>
                                     <td class="text-center">${player_SEGMENTACAOSILABICA}</td>
+                                    <td class="text-center">${player_numb_SEGMENTACAOSILABICA}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${DISCRIMINACAOFONEMICA}</td>
                                     <td class="text-center">${player_DISCRIMINACAOFONEMICA}</td>
+                                    <td class="text-center">${player_numb_DISCRIMINACAOFONEMICA}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${MEMORIAFONOLOGICA}</td>
                                     <td class="text-center" >${player_MEMORIAFONOLOGICA}</td>
+                                    <td class="text-center" >${player_numb_MEMORIAFONOLOGICA}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${REPETICAODEPSEUDOPALAVRAS}</td>
                                     <td class="text-center" >${player_REPETICAODEPSEUDOPALAVRAS}</td>
+                                    <td class="text-center" >${player_numb_REPETICAODEPSEUDOPALAVRAS}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${COPIADEERITMO}</td>
                                     <td class="text-center">${player_COPIADEERITMO}</td>
+                                    <td class="text-center">${player_numb_COPIADEERITMO}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${MEMORIAVISUAL}</td>
                                     <td class="text-center" >${player_MEMORIAVISUAL}</td>
+                                    <td class="text-center" >${player_numb_MEMORIAVISUAL}</td>
                                 </tr>
                                 <tr class="active">
                                     <td>${COPIADEFORMAS}</td>
                                     <td class="text-center" >${player_COPIADEFORMAS}</td>
+                                    <td class="text-center" >${player_numb_COPIADEFORMAS}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -73,6 +73,8 @@ public class ResultController {
             } else {
                 modelAndView.addObject("player_" + hab, "não possui dados");
             }
+            int numb = this.gameService.findByUserAndHability(player.getFkUser(), hab).size();
+            modelAndView.addObject("player_numb_" + hab, numb);
         }
     }
 
